@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Higashiyama Afternoon Walk — Amazing Kyoto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #242422;
+    --page: #F5F4EF;
+    --card: #FCFCFA;
+    --accent: #B14A34;
+    --accent-soft: rgba(177,74,52,0.10);
+    --text-2: #6B665A;
+    --text-3: #9A9A90;
+    --line: #E1E0D8;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--page);
+    color:var(--ink);
+    font-family:'Work Sans',sans-serif;
+    line-height:1.55;
+  }
+  h1,h2,.brush{
+    font-family:'Shippori Mincho',serif;
+    font-weight:700;
+    letter-spacing:0.01em;
+  }
+  .mono{
+    font-family:'IBM Plex Mono',monospace;
+    letter-spacing:0.02em;
+    text-transform:uppercase;
+    font-size:0.7rem;
+  }
+
+  .hero{ padding:40px 22px 22px; }
+  .hero .eyebrow{ color:var(--accent); margin:0 0 10px; }
+  .hero h1{ font-size:2rem; margin:0 0 8px; line-height:1.18; color:var(--ink); }
+  .hero .sub{ color:var(--text-2); font-size:1rem; max-width:36ch; margin:0; }
+
+  .map-wrap{
+    margin:0 22px 20px;
+    background:var(--card);
+    border:0.5px solid var(--line);
+    border-radius:12px;
+    padding:10px;
+  }
+
+  .intensity{
+    margin:0 22px 24px;
+    background:var(--accent-soft);
+    border:1px solid var(--accent);
+    border-radius:12px;
+    padding:14px 16px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 16px;
+    font-size:0.82rem;
+    color:var(--ink);
+  }
+  .intensity b{color:var(--accent); font-weight:700;}
+
+  .route{
+    position:relative;
+    padding:32px 20px 60px;
+    max-width:640px;
+    margin:0 auto;
+  }
+  .path-line{
+    position:absolute;
+    left:29px; top:32px; bottom:60px;
+    width:1.5px;
+    background:repeating-linear-gradient(to bottom, var(--line) 0 6px, transparent 6px 12px);
+  }
+  .stop{
+    position:relative;
+    padding-left:56px;
+    margin-bottom:36px;
+    scroll-margin-top:20px;
+  }
+  .stop.optional{ opacity:0.9; }
+  .stop-marker{
+    position:absolute; left:0; top:2px;
+    width:58px; height:58px;
+    border-radius:50%;
+    background:var(--card);
+    border:1.5px solid var(--ink);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Shippori Mincho',serif;
+    font-weight:700; font-size:1.05rem; color:var(--ink);
+    transition:all .25s ease;
+    z-index:2;
+  }
+  .stop.active .stop-marker{ background:var(--accent); border-color:var(--accent); color:var(--card); transform:scale(1.06); }
+  .stop.optional .stop-marker{ border-style:dashed; }
+  .stop-photo{
+    width:100%; aspect-ratio:16/10; object-fit:cover;
+    border-radius:6px; margin:12px 0 12px; display:block;
+    background:var(--line);
+  }
+  .stop-illustration{
+    width:100%; aspect-ratio:16/10; object-fit:contain;
+    border-radius:6px; margin:12px 0 12px; display:block;
+    background:var(--card); border:0.5px solid var(--line);
+  }
+  .stop h2{ font-size:1.22rem; margin:0 0 4px; color:var(--ink); }
+  .stop .tag{
+    display:inline-block;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem; text-transform:uppercase; letter-spacing:0.03em;
+    color:var(--accent); border:1px solid var(--accent);
+    border-radius:20px; padding:3px 11px; margin-bottom:10px;
+  }
+  .stop p{ margin:0 0 10px; font-size:1rem; color:var(--ink); }
+  .stop .maps-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.7rem; text-transform:uppercase; letter-spacing:0.03em;
+    color:var(--accent); text-decoration:none;
+    border-bottom:1px solid var(--accent); padding-bottom:2px;
+  }
+  .callout, .bailout{
+    background:var(--accent-soft);
+    border-left:2px solid var(--accent);
+    padding:11px 13px; border-radius:0 4px 4px 0;
+    font-size:0.92rem; margin-top:8px; color:var(--ink);
+  }
+  .callout b, .bailout b{color:var(--accent);}
+
+  footer{
+    text-align:center; padding:24px 20px 32px;
+    font-size:0.8rem; color:var(--text-3);
+    border-top:0.5px solid var(--line);
+  }
+  footer b{color:var(--ink);}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <p class="eyebrow mono">A Friendly Recommendation from Amazing Kyoto</p>
+  <h1>Higashiyama, As It Was</h1>
+  <p class="sub">Gion is Kyoto's best-preserved historic quarter — the geisha district, and the streets where old Kyoto's wooden townscape survives almost untouched.</p>
+</div>
+
+<p class="mono" style="margin:0 22px 8px; color:var(--text-3);">Route at a glance</p>
+<div class="map-wrap">
+  <img src="route-overview.jpg" alt="Route map: Sanjo Keihan Station to Tatsumi Bridge, Kennin-ji, Yasaka Pagoda, Kiyomizu-dera, Kodaiji, Yasaka Shrine, Pontocho" style="width:100%; border-radius:8px; display:block;">
+</div>
+
+<div class="intensity">
+  <span>🕒 <b>About 2–3 hours</b>, all on foot</span>
+  <span>⛰️ Only real incline: the lanes up to Kiyomizu-dera (Ninenzaka/Sannenzaka) — everything else is flat</span>
+</div>
+
+<div class="route">
+  <div class="path-line"></div>
+
+  <div class="stop" id="s1">
+    <div class="stop-marker">1</div>
+    <span class="tag">First stop · 5 min from Sanjo Keihan Station</span>
+    <h2>Tatsumi Bridge, Shirakawa</h2>
+    <img class="stop-illustration" src="images/tatsumi-bridge.jpg" alt="Illustration of Tatsumi Bridge over the Shirakawa canal">
+    <p>Gion's most photographed corner — and a filming location for <em>Memoirs of a Geisha</em>.</p>
+    <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=35.0055745,135.7745134&query_place_id=ChIJq_lDMQ4JAWARKKF3f4LIttc" target="_blank" rel="noopener">Open in Google Maps →</a>
+  </div>
+
+  <div class="stop" id="s2">
+    <div class="stop-marker">2</div>
+    <span class="tag">Gion lanes</span>
+    <h2>Hanamikoji-dori</h2>
+    <img class="stop-illustration" src="images/hanamikoji.png" alt="Illustration of a maiko with a red umbrella in Gion">
+    <p>Real geisha district — come back after dark and you might spot a maiko slipping between engagements.</p>
+    <div class="callout"><b>On the way:</b> Kennin-ji, Kyoto's oldest Zen temple (1202), right at the street's south end.</div>
+    <img class="stop-illustration" src="images/kennin-ji.png" alt="Illustration of Kennin-ji temple gate" style="margin-top:10px;">
+    <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=35.0005000,135.7743000&query_place_id=ChIJa_GfKgAJAWARdBs1o7x70k0" target="_blank" rel="noopener">Open in Google Maps →</a>
+  </div>
+
+  <div class="stop" id="s3">
+    <div class="stop-marker">3</div>
+    <span class="tag">The postcard shot</span>
+    <h2>Yasaka Pagoda (Hōkan-ji)</h2>
+    <img class="stop-illustration" src="images/yasaka-pagoda.png" alt="Illustration of Yasaka Pagoda above a Higashiyama street">
+    <p>One of Kyoto's defining landmarks — a five-story pagoda dating back to 1440. The surrounding lanes (Ninenzaka &amp; Sannenzaka) are lined with old machiya townhouses turned into craft shops — one of the most atmospheric stretches in the city.</p>
+    <div class="callout"><b>Conan fans:</b> this exact stretch is where Ran, Sonoko &amp; Kazuha walked in <em>The Crossroad in the Ancient Capital</em>.</div>
+    <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=34.998558,135.7792358&query_place_id=ChIJIcT4YMUIAWARSTUi4EEky7E" target="_blank" rel="noopener">Open in Google Maps →</a>
+  </div>
+
+  <div class="stop" id="s4">
+    <div class="stop-marker">4</div>
+    <span class="tag">Turn-back point · optional</span>
+    <h2>Kiyomizu-dera</h2>
+    <img class="stop-illustration" src="images/kiyomizu-dera.jpg" alt="Illustration of Kiyomizu-dera's wooden stage and pagoda">
+    <p>UNESCO World Heritage Site. Famous for the wooden stage built without a single nail — the view over Kyoto is the reward for the climb.</p>
+    <div class="callout"><b>Conan fans:</b> also a filming location in the same movie, right before Yasaka Pagoda.</div>
+    <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=34.9946662,135.784661&query_place_id=ChIJB_vchdMIAWARujTEUIZlr2I" target="_blank" rel="noopener">Open in Google Maps →</a>
+  </div>
+
+  <div class="stop optional" id="s5">
+    <div class="stop-marker">5</div>
+    <span class="tag">Free · on the way back</span>
+    <h2>Nene-no-Michi</h2>
+    <img class="stop-illustration" src="images/kodaiji.jpg" alt="Illustration referencing Nene and Kōdai-ji's history">
+    <p>A quiet stone-paved lane skirting Kōdai-ji's bamboo grove — no entry fee, no temple visit needed. This is the calm, unhurried stretch of the walk: just the bamboo, a few artisan shops, and a break from the crowds before Yasaka Shrine.</p>
+    <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=35.0011041,135.7799518&query_place_id=ChIJ_XXS5rcJAWAREfuogskI2c8" target="_blank" rel="noopener">Open in Google Maps →</a>
+  </div>
+
+  <div class="stop" id="s6">
+    <div class="stop-marker">6</div>
+    <span class="tag">Free · 24hrs</span>
+    <h2>Yasaka Shrine</h2>
+    <img class="stop-illustration" src="images/yasaka-shrine.png" alt="Illustration of Yasaka Shrine's lantern-lit dance stage">
+    <p>The spiritual heart of Gion — free entry, open 24 hours, glowing after dark.</p>
+    <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=35.0036559,135.7785534&query_place_id=ChIJqewQoHkIAWAR6RokWp3Iesc" target="_blank" rel="noopener">Open in Google Maps →</a>
+  </div>
+
+  <div class="stop" id="s7">
+    <div class="stop-marker">7</div>
+    <span class="tag">End here · dinner</span>
+    <h2>Pontocho</h2>
+    <img class="stop-photo" src="images/pontocho.jpg" alt="Pontocho alley at night with lanterns">
+    <p>Kyoto's most atmospheric dining alley, best after dusk — paper lanterns, and sometimes live shamisen drifting out of the teahouses.</p>
+    <div class="callout"><b>Picking a restaurant:</b> a queue of local faces beats a multilingual menu board. Conveyor sushi is always a safe, no-surprises option.</div>
+    <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=35.0064277,135.7712162&query_place_id=ChIJCQK3LesIAWAR3CST8e-1YRA" target="_blank" rel="noopener">Open in Google Maps →</a>
+  </div>
+
+</div>
+
+<footer>
+  <p><b>Amazing Kyoto</b></p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        document.querySelectorAll('.stop').forEach(el=>el.classList.remove('active'));
+        entry.target.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-40% 0px -50% 0px', threshold:0});
+
+  document.querySelectorAll('.stop').forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>
