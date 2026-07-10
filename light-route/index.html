@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riverside &amp; Shopping Streets — Amazing Kyoto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #242422;
+    --page: #F5F4EF;
+    --card: #FCFCFA;
+    --accent: #B14A34;
+    --accent-soft: rgba(177,74,52,0.10);
+    --text-2: #6B665A;
+    --text-3: #9A9A90;
+    --line: #E1E0D8;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--page);
+    color:var(--ink);
+    font-family:'Work Sans',sans-serif;
+    line-height:1.55;
+  }
+  h1,h2,.brush{
+    font-family:'Shippori Mincho',serif;
+    font-weight:700;
+    letter-spacing:0.01em;
+  }
+  .mono{
+    font-family:'IBM Plex Mono',monospace;
+    letter-spacing:0.02em;
+    text-transform:uppercase;
+    font-size:0.7rem;
+  }
+
+  .hero{ padding:40px 22px 22px; }
+  .hero .eyebrow{ color:var(--accent); margin:0 0 10px; }
+  .hero h1{ font-size:2rem; margin:0 0 8px; line-height:1.18; color:var(--ink); }
+  .hero .sub{ color:var(--text-2); font-size:1rem; max-width:36ch; margin:0; }
+
+  .map-wrap{
+    margin:0 22px 20px;
+    background:var(--card);
+    border:0.5px solid var(--line);
+    border-radius:12px;
+    padding:10px;
+  }
+
+  .intensity{
+    margin:0 22px 24px;
+    background:var(--accent-soft);
+    border:1px solid var(--accent);
+    border-radius:12px;
+    padding:14px 16px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 16px;
+    font-size:0.82rem;
+    color:var(--ink);
+  }
+  .intensity b{color:var(--accent); font-weight:700;}
+
+  .route{
+    position:relative;
+    padding:32px 20px 60px;
+    max-width:640px;
+    margin:0 auto;
+  }
+  .path-line{
+    position:absolute;
+    left:29px; top:32px; bottom:60px;
+    width:1.5px;
+    background:repeating-linear-gradient(to bottom, var(--line) 0 6px, transparent 6px 12px);
+  }
+  .stop{
+    position:relative;
+    padding-left:56px;
+    margin-bottom:36px;
+    scroll-margin-top:20px;
+  }
+  .stop-marker{
+    position:absolute; left:0; top:2px;
+    width:58px; height:58px;
+    border-radius:50%;
+    background:var(--card);
+    border:1.5px solid var(--ink);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Shippori Mincho',serif;
+    font-weight:700; font-size:1.05rem; color:var(--ink);
+    z-index:2;
+  }
+  .stop-photo, .stop-illustration{
+    width:100%; aspect-ratio:16/10;
+    border-radius:6px; margin:12px 0 12px; display:block;
+    background:var(--card);
+  }
+  .stop-photo{ object-fit:cover; }
+  .stop-illustration{ object-fit:contain; border:0.5px solid var(--line); }
+  .stop h2{ font-size:1.22rem; margin:0 0 4px; color:var(--ink); }
+  .stop .tag{
+    display:inline-block;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem; text-transform:uppercase; letter-spacing:0.03em;
+    color:var(--accent); border:1px solid var(--accent);
+    border-radius:20px; padding:3px 11px; margin-bottom:10px;
+  }
+  .stop p{ margin:0 0 10px; font-size:1rem; color:var(--ink); }
+  .stop .maps-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.7rem; text-transform:uppercase; letter-spacing:0.03em;
+    color:var(--accent); text-decoration:none;
+    border-bottom:1px solid var(--accent); padding-bottom:2px;
+  }
+  .callout{
+    background:var(--accent-soft);
+    border-left:2px solid var(--accent);
+    padding:11px 13px; border-radius:0 4px 4px 0;
+    font-size:0.92rem; margin-top:8px; color:var(--ink);
+  }
+  .callout b{color:var(--accent);}
+
+  footer{
+    text-align:center; padding:24px 20px 32px;
+    font-size:0.8rem; color:var(--text-3);
+    border-top:0.5px solid var(--line);
+  }
+  footer b{color:var(--ink);}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <p class="eyebrow mono">A Friendly Recommendation from Amazing Kyoto</p>
+  <h1>The River, Then the Streets</h1>
+  <p class="sub">A gentle riverside walk into Kyoto's liveliest evening streets — dinner, drinks, and shopping, all within a few blocks of each other.</p>
+</div>
+
+<p class="mono" style="margin:0 22px 8px; color:var(--text-3);">Route at a glance</p>
+<div class="map-wrap">
+  <img src="route-overview.jpg" alt="Route map: Sanjo Keihan Station to Tatsumi Bridge, Hanamikoji, Kamogawa riverside, Pontocho, Kiyamachi, Teramachi, Nishiki Market" style="width:100%; border-radius:8px; display:block;">
+</div>
+
+<div class="intensity">
+  <span>🕒 <b>About 1.5–2 hours</b>, all flat, easy walking</span>
+  <span>🌆 Best started late afternoon, runs into evening</span>
+</div>
+
+<div class="route">
+  <div class="path-line"></div>
+
+  <div class="stop" id="s1">
+    <div class="stop-marker">1</div>
+    <span class="tag">Start here</span>
+    <h2>Tatsumi Bridge, Shirakawa</h2>
+    <img class="stop-photo" src="images/tatsumi-bridge.jpg" alt="Tatsumi Bridge over the Shirakawa canal">
+    <p>Gion's most photographed corner — and a filming location for <em>Memoirs of a Geisha</em>.</p>
+    <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=35.0055745,135.7745134&query_place_id=ChIJq_lDMQ4JAWARKKF3f4LIttc" target="_blank" rel="noopener">Open in Google Maps →</a>
+  </div>
+
+  <div class="stop" id="s2">
+    <div class="stop-marker">2</div>
+    <span class="tag">Gion lanes</span>
+    <h2>Hanamikoji-dori</h2>
+    <img class="stop-illustration" src="images/hanamikoji.png" alt="Illustration of a maiko with a red umbrella in Gion">
+    <p>Real geisha district — a quick pass-through before heading west toward the river.</p>
+    <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=35.0005000,135.7743000&query_place_id=ChIJa_GfKgAJAWARdBs1o7x70k0" target="_blank" rel="noopener">Open in Google Maps →</a>
+  </div>
+
+  <div class="stop" id="s3">
+    <div class="stop-marker">3</div>
+    <span class="tag">Cross the river</span>
+    <h2>Kamogawa Riverside</h2>
+    <img class="stop-illustration" src="images/kamogawa.jpg" alt="Watercolor illustration of the Kamogawa riverside with traditional dining terraces">
+    <p>Kyoto's river of choice for an evening stroll. Watch for the couples sitting evenly spaced along the bank — a local phenomenon everyone notices, nobody fully explains.</p>
+    <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=35.0090538,135.7718123&query_place_id=ChIJn93D-2wJAWARoY9zgQJLj0g" target="_blank" rel="noopener">Open in Google Maps →</a>
+  </div>
+
+  <div class="stop" id="s4">
+    <div class="stop-marker">4</div>
+    <span class="tag">Best after dark</span>
+    <h2>Pontocho</h2>
+    <img class="stop-photo" src="images/pontocho.jpg" alt="Pontocho alley at night with lanterns">
+    <p>Kyoto's most atmospheric dining alley — quiet elegance, traditional restaurants, occasional glimpses of geisha culture. Best after dark, when the lanterns come on and the alley really comes alive.</p>
+    <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=35.0064277,135.7712162&query_place_id=ChIJCQK3LesIAWAR3CST8e-1YRA" target="_blank" rel="noopener">Open in Google Maps →</a>
+  </div>
+
+  <div class="stop" id="s5">
+    <div class="stop-marker">5</div>
+    <span class="tag">Best after dark</span>
+    <h2>Kiyamachi</h2>
+    <img class="stop-illustration" src="images/kiyamachi.png" alt="Illustration of the willow-lined Takase canal in Kiyamachi">
+    <p>The nightlife strip along the Takase canal, dug in 1611 to move timber into the city. Willows and cherry trees line the water, with bars and izakaya lighting up after dark.</p>
+    <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=35.0008496,135.769274&query_place_id=ChIJdSUnOJMIAWARkHe-gQ-jV4o" target="_blank" rel="noopener">Open in Google Maps →</a>
+  </div>
+
+  <div class="stop" id="s6">
+    <div class="stop-marker">6</div>
+    <span class="tag">Shopping · closes ~8-9pm</span>
+    <h2>Teramachi &amp; Shin-Kyogoku</h2>
+    <img class="stop-illustration" src="images/teramachi.jpg" alt="Photo of the Teramachi covered shopping arcade">
+    <p>Two parallel shopping arcades, different personalities: Teramachi is calmer and older — Hideyoshi relocated Kyoto's temples here in the 1590s, so antique shops and traditional crafts still line it. Shin-Kyogoku, one street over, is livelier — built in 1872, packed with souvenirs and casual shopping. Most shops close around 8-9pm.</p>
+    <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=35.0037877,135.7668754&query_place_id=ChIJDW-ECZIIAWARetuHCbkUwT0" target="_blank" rel="noopener">Open in Google Maps →</a>
+  </div>
+
+  <div class="stop" id="s7">
+    <div class="stop-marker">7</div>
+    <span class="tag">Best in daylight · closes ~7pm</span>
+    <h2>Nishiki Market</h2>
+    <img class="stop-illustration" src="images/nishiki-market.jpg" alt="Illustration of Nishiki Market's covered food stalls">
+    <p>"Kyoto's Kitchen" — a 400-year-old covered market street, packed with food stalls and local snacks. Most shops close by 7pm, so this one's better visited before the evening stops.</p>
+    <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=35.0050258,135.764723&query_place_id=ChIJT8uMzZwIAWARnGzsARCjnrY" target="_blank" rel="noopener">Open in Google Maps →</a>
+  </div>
+
+</div>
+
+<footer>
+  <p><b>Amazing Kyoto</b></p>
+</footer>
+
+</body>
+</html>
