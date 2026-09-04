@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amazing Kyoto — Bespoke Private Tours with an Insider</title>
+<meta name="description" content="Private walking and cycling tours in Kyoto, led by a local insider with 10+ years of guiding experience.">
+<meta name="color-scheme" content="light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#242422;
+    --ink-soft:#5c5b56;
+    --page:#F5F4EF;
+    --card:#FCFCFA;
+    --accent:#242422;
+    --warm:#F5C842;
+    --warm-soft:#FBE9AE;
+    --line:#ddd9d0;
+    --serif: 'Noto Sans', 'Noto Sans SC', 'Noto Sans TC', sans-serif;
+    --sans: 'Noto Sans', 'Noto Sans SC', 'Noto Sans TC', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth; color-scheme:light; background:#F5F4EF;}
+  body{
+    background:var(--page);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    color-scheme:light;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--accent);
+  }
+  h1,h2,h3{font-family:var(--serif); font-weight:700; line-height:1.25;}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    padding:14px 26px;
+    border:1px solid var(--ink);
+    color:var(--ink);
+    transition:background .25s ease, color .25s ease;
+  }
+  .btn:hover{background:var(--ink); color:var(--page);}
+  .btn.solid{background:var(--accent); border-color:var(--accent); color:#fff;}
+  .btn.solid:hover{background:var(--ink); border-color:var(--ink);}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--page);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 32px;
+    max-width:1180px; margin:0 auto;
+  }
+  .logo{font-family:var(--serif); font-size:20px; letter-spacing:0.02em;}
+  .navlinks{display:flex; gap:36px; font-family:var(--mono); font-size:12px; letter-spacing:0.08em; text-transform:uppercase;}
+  .navlinks a{position:relative; padding-bottom:4px;}
+  .navlinks a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .25s ease;}
+  .navlinks a:hover::after{transform:scaleX(1);}
+  .langswitch{display:flex; gap:8px; font-family:var(--mono); font-size:14px;}
+  .langswitch a{opacity:0.55; padding:6px 10px; border:1px solid transparent; border-radius:6px;}
+  .langswitch a.active{opacity:1; color:var(--accent); border-color:var(--line); background:var(--card); font-weight:700;}
+  .navmobile{display:none;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    height:58vh; min-height:440px; max-height:640px;
+    display:flex; align-items:flex-end; justify-content:flex-start;
+    text-align:left;
+    color:#fff;
+    overflow:hidden;
+    isolation:isolate;
+    -webkit-transform:translateZ(0);
+    transform:translateZ(0);
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background:#b9b3a3 url('images/hero.jpg') center/cover no-repeat;
+    z-index:0;
+  }
+  .hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(36,36,34,0.35) 0%, rgba(36,36,34,0.72) 100%);
+    z-index:1;
+  }
+  .hero-inner{position:relative; z-index:2;}
+  .hero-inner{padding:0 32px 48px; max-width:1180px; margin:0 auto; width:100%; display:flex; flex-direction:column; align-items:flex-start;}
+  .hero-tag{font-family:var(--mono); font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--warm); opacity:1; margin-bottom:22px;}
+  .hero h1{font-size:clamp(40px, 6.4vw, 76px); font-weight:600; line-height:1.05; letter-spacing:-0.01em; text-shadow:0 2px 30px rgba(0,0,0,0.4);}
+  .hero-break{display:none;}
+  .hero p{font-family:var(--sans); font-size:clamp(16px,1.6vw,19px); font-weight:400; margin-top:16px; opacity:0.9; max-width:520px; line-height:1.5; text-shadow:0 1px 14px rgba(0,0,0,0.45);}
+  .hero .btn{margin-top:28px; background:#fff; border-color:#fff; color:var(--ink);}
+  .hero .btn:hover{background:var(--accent); border-color:var(--accent); color:#fff;}
+
+  /* ---------- SEASONAL BANNER ---------- */
+  /* ---------- INTRO / SERVICES ---------- */
+  .intro{padding:64px 0 0; text-align:center; background:var(--page);}
+  .intro .section-title{
+    font-family:var(--serif); font-weight:700; font-size:clamp(26px,3.6vw,40px);
+    letter-spacing:-0.01em; margin-bottom:18px;
+  }
+  .intro p.lead{
+    font-family:var(--sans); font-size:clamp(14px,1.4vw,16px); line-height:1.6;
+    max-width:600px; margin:0 auto; color:var(--ink-soft);
+  }
+  .services{
+    display:flex; justify-content:center; align-items:flex-start;
+    gap:0; margin-top:44px; position:relative; background:var(--page);
+  }
+  .services svg.route{position:absolute; top:26px; left:0; width:100%; height:40px; z-index:0;}
+  .service{
+    flex:1; max-width:220px; position:relative; z-index:1;
+    display:flex; flex-direction:column; align-items:center; gap:16px;
+  }
+  .service .icon{
+    width:60px; height:60px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .service .icon svg{width:52px; height:52px;}
+  .service.walking .icon svg{stroke:#2C3E63;}
+  .service.cycling .icon svg{stroke:#E08A34;}
+  .service.bespoke .icon svg{stroke:#2F7A6E;}
+  .service .label{font-family:var(--sans); font-weight:600; font-size:13px; letter-spacing:0.01em;}
+
+  /* ---------- TOUR SECTIONS ---------- */
+  .tour-section{padding:88px 0; background:var(--page);}
+  .tour-section.alt{background:var(--warm-soft); border-top:1px solid var(--warm); border-bottom:1px solid var(--warm);}
+  .tour-section.alt .route-list li{border-bottom-color:rgba(36,36,34,0.15);}
+  .tour-section.alt .desc{color:#54452a;}
+  .tour-section.warm-solid{background:var(--warm);}
+  .tour-grid{
+    display:grid; grid-template-columns:1.0fr 0.85fr; gap:88px; align-items:center;
+    max-width:1000px; margin:0 auto;
+  }
+  .tour-grid.reverse{grid-template-columns:0.85fr 1.0fr;}
+  .tour-grid.reverse .copy{justify-self:end; text-align:right;}
+  .tour-grid.reverse .route-list{margin-left:auto;}
+  .tour-grid.reverse .route-list li{justify-content:flex-end;}
+  .tour-grid.reverse .route-list li::before{order:2;}
+  .tour-grid.reverse .media{order:2;}
+  .tour-grid.reverse .copy{order:1;}
+  .media{
+    aspect-ratio:4/5; background:#c9c3b3;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--mono); font-size:12px; color:#7a7568; text-align:center; padding:20px;
+    background-size:cover; background-position:center;
+  }
+  .copy .eyebrow{margin-bottom:14px;}
+  .copy h2{font-family:var(--serif); font-weight:700; font-size:clamp(26px,3.6vw,40px); letter-spacing:-0.01em; margin-bottom:16px;}
+  .copy .desc{color:var(--ink-soft); font-size:14px; max-width:360px; margin-bottom:26px;}
+  .route-list{list-style:none; margin-bottom:36px; max-width:280px;}
+  .route-list li{
+    font-family:var(--sans); font-size:14px;
+    padding:12px 0; border-bottom:1px solid var(--line);
+    display:flex; align-items:center; gap:12px;
+  }
+  .route-list li::before{content:"→"; color:var(--accent); font-family:var(--mono);}
+
+  /* ---------- ABOUT ---------- */
+  .about{background:var(--ink); color:var(--page); padding:70px 0;}
+  .about-grid{display:grid; grid-template-columns:1fr 220px; gap:56px; align-items:center; max-width:820px; margin:0 auto;}
+  .about-photo{width:220px; height:220px; border-radius:50%; overflow:hidden; background:#4a4944; order:2;}
+  
+  .about .eyebrow{color:var(--warm); font-size:14px; letter-spacing:0.16em;}
+  .about h2{font-size:clamp(28px,3.6vw,40px); margin:14px 0 28px;}
+  .about blockquote{
+    font-family:var(--sans); font-weight:400; font-size:16px; line-height:1.7;
+    color:#d8d5cb; max-width:600px;
+  }
+  .about blockquote p{margin-bottom:20px;}
+  .about-founder{margin-top:28px; font-family:var(--mono); font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#a8a59c;}
+  .about-details summary{
+    cursor:pointer; list-style:none;
+    font-family:var(--mono); font-size:12px; letter-spacing:0.09em; text-transform:uppercase;
+    color:var(--warm); display:inline-flex; align-items:center; gap:10px;
+    border:1px solid var(--warm); border-radius:30px;
+    padding:12px 22px;
+    transition:background .25s ease, color .25s ease;
+  }
+  .about-details summary:hover{background:var(--warm); color:var(--ink);}
+  .about-details summary::-webkit-details-marker{display:none;}
+  .about-details summary::marker{content:none;}
+  .about-details summary::after{content:"+"; font-size:16px; line-height:1;}
+  .about-details[open] summary::after{content:"–";}
+  .about-details blockquote{margin-top:26px;}
+  .about-cta{
+    display:inline-flex; align-items:center; gap:8px;
+    margin-top:16px; margin-left:20px;
+    font-family:var(--mono); font-size:12px; letter-spacing:0.09em; text-transform:uppercase;
+    background:var(--warm); color:var(--ink); padding:12px 22px;
+    transition:background .25s ease;
+  }
+  .about-cta:hover{background:var(--warm-soft);}
+  @media (max-width:640px){
+    .about-cta{margin-left:0; margin-top:14px; display:flex; justify-content:center;}
+  }
+
+  /* ---------- SOCIAL STRIP ---------- */
+  .social-strip{padding:70px 0; text-align:center; border-bottom:1px solid var(--line); background:var(--page);}
+  .social-strip h3{font-family:var(--sans); font-weight:500; font-size:15px; text-transform:uppercase; letter-spacing:0.08em;}
+  .social-strip a.handle{color:var(--accent); font-family:var(--mono);}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:70px 0 40px; background:var(--page); color:var(--ink);}
+  .footer-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:40px; padding-bottom:50px; border-bottom:1px solid var(--line);}
+  footer h4{font-family:var(--mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:16px;}
+  footer .company{font-family:var(--serif); font-size:20px; margin-bottom:6px;}
+  footer .member{color:#8a6a14; font-size:13px; font-weight:700; line-height:1.5; background:#FBF1D6; border:1px solid #B8860B; border-radius:6px; padding:10px 14px; margin-top:10px; display:inline-block;}
+  footer address{font-style:normal; font-size:14px; color:var(--ink-soft); line-height:1.8;}
+  .social-icons{display:flex; gap:14px; margin-top:18px;}
+  .social-icons a{
+    width:40px; height:40px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    transition:transform .2s ease, filter .2s ease;
+  }
+  .social-icons a svg{width:19px; height:19px; stroke:#fff; fill:none; stroke-width:1.6;}
+  .social-icons a:hover{transform:translateY(-2px); filter:brightness(1.08);}
+  .social-icons a.icon-line{background:#06C755;}
+  .social-icons a.icon-whatsapp{background:#25D366;}
+  .social-icons a.icon-email{background:var(--ink);}
+  .social-icons a.icon-instagram{background:linear-gradient(135deg,#F58529,#DD2A7B 45%,#8134AF 70%,#515BD4);}
+  .foot-bottom{display:flex; justify-content:space-between; align-items:center; padding-top:26px; font-family:var(--mono); font-size:11px; color:var(--ink-soft); flex-wrap:wrap; gap:12px;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:860px){
+    .navlinks{display:none;}
+    .hero{height:78vw; min-height:280px; max-height:360px;}
+    .hero-break{display:block;}
+    .intro{padding:48px 0 0;}
+    .services{margin-top:40px; gap:28px;}
+    .tour-section{padding:56px 0;}
+    .tour-grid, .tour-grid.reverse{grid-template-columns:1fr; gap:28px;}
+    .tour-grid .media, .tour-grid.reverse .media{order:1; aspect-ratio:4/3;}
+    .tour-grid .copy, .tour-grid.reverse .copy{order:2;}
+    .about{padding:32px 0;}
+    .about-grid{grid-template-columns:1fr 84px; text-align:left; gap:16px; align-items:start;}
+    .about-photo{width:84px; height:84px; order:2;}
+    .about .eyebrow{font-size:11px; letter-spacing:0.1em;}
+    .about h2{font-size:22px; margin:6px 0 14px;}
+    .about-details summary{font-size:11px; padding:9px 16px;}
+    .about-founder{margin-top:16px; font-size:11px;}
+    .footer-grid{grid-template-columns:1fr; gap:32px;}
+    .intro p.lead{font-size:14px; max-width:320px; line-height:1.65;}
+    .route-list{max-width:none;}
+    .route-list li{font-size:13px; white-space:nowrap;}
+    .services{flex-direction:row; justify-content:center; gap:10px; margin-top:28px; align-items:flex-start;}
+    .services svg.route{display:none;}
+    .service{flex-direction:column; align-items:center; gap:10px; flex:1; max-width:120px;}
+    .service .icon{width:42px; height:42px;}
+    .service .icon svg{width:36px; height:36px;}
+    .service .label{font-size:12px; text-align:center; line-height:1.4;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">月阿弥 <span style="opacity:.5; font-size:14px;">Amazing Kyoto</span></div>
+    <div class="navlinks">
+      <a href="#tours">Tours</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="langswitch">
+      <a href="/en/" class="active">EN</a>
+      <a href="/zh-cn/">简</a>
+      <a href="/zh-tw/">繁</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Amazing<br class="hero-break">Kyoto</h1>
+    <p>Bespoke private tours with a local insider.</p>
+    <a href="#tours" class="btn">View Tours</a>
+  </div>
+</section>
+
+<section class="intro wrap">
+  <h2 class="section-title">Services</h2>
+  <p class="lead">With 10+ years of expertise in the heart of Japan's ancient capital, I specialize in uncovering the "Real Kyoto" that guidebooks miss.</p>
+
+  <div class="services">
+    <div class="service walking">
+      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2v2.5"/>
+        <path d="M8.5 6 L12 4.3 L15.5 6"/>
+        <path d="M8 6 H16"/>
+        <path d="M9 6 V9"/>
+        <path d="M15 6 V9"/>
+        <path d="M6 10.3 L12 8 L18 10.3"/>
+        <path d="M5.5 10.3 H18.5"/>
+        <path d="M7 10.3 V20.5"/>
+        <path d="M17 10.3 V20.5"/>
+        <path d="M7 20.5 H17"/>
+        <path d="M10.5 20.5 V16.5 Q10.5 15 12 15 Q13.5 15 13.5 16.5 V20.5"/>
+      </svg></div>
+      <div class="label">Walking Tour</div>
+    </div>
+    <div class="service cycling">
+      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="6" cy="17" r="3.5"/><circle cx="18" cy="17" r="3.5"/><path d="M6 17 L10 8 H14 L18 17 M10 8 L13 13 H18"/></svg></div>
+      <div class="label">Insider Cycling</div>
+    </div>
+    <div class="service bespoke">
+      <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="10" width="18" height="8" rx="2"/><path d="M6 10 L8 5 H16 L18 10"/><circle cx="7.5" cy="18" r="1.6"/><circle cx="16.5" cy="18" r="1.6"/></svg></div>
+      <div class="label">Bespoke Private</div>
+    </div>
+  </div>
+</section>
+
+<section id="tours" class="tour-section">
+  <div class="wrap tour-grid">
+    <div class="media" style="background-image:url('images/walking.jpg');"></div>
+    <div class="copy">
+      <h2>Hidden Kyoto Walk</h2>
+      <p class="desc">Slow down and wander through the living history of Kyoto's hidden alleys.</p>
+      <ul class="route-list">
+        <li><a href="tours/morning-ritual.html">Whispers of the Morning Ritual</a></li>
+        <li>Tales of the Night: Gion &amp; Pontocho</li>
+      </ul>
+      <a href="/en/tours/" class="btn">See Walking Tours</a>
+    </div>
+  </div>
+</section>
+
+<section class="tour-section alt">
+  <div class="wrap tour-grid reverse">
+    <div class="media" style="background-image:url('images/cycling.jpg'); background-position:center 78%;"></div>
+    <div class="copy">
+      <h2>Insider Cycling</h2>
+      <p class="desc">Feel the city breeze where tour buses can't reach — authentic Kyoto is just a pedal away.</p>
+      <ul class="route-list">
+        <li><a href="tours/shrine-cycling.html">Skip the Crowds: Kyoto's "8 Million Gods" Bike Adventure</a></li>
+        <li><a href="tours/afternoon-cycling.html">Green Kyoto: Canals, Zen Temple &amp; Kamo River</a></li>
+      </ul>
+      <a href="/en/tours/" class="btn">See Cycling Tours</a>
+    </div>
+  </div>
+</section>
+
+<section class="tour-section">
+  <div class="wrap tour-grid">
+    <div class="media" style="background-image:url('images/bespoke.jpg'); background-position:center 32%;"></div>
+    <div class="copy">
+      <h2>Bespoke Travel</h2>
+      <p class="desc">Your Kyoto story, tailor-made with a decade of local wisdom and private comfort.</p>
+      <ul class="route-list">
+        <li>Personalized Trips via Private Van</li>
+        <li>Deep Exploration of Kyoto's Outskirts (Ohara / Uji)</li>
+        <li>Special Experiences</li>
+      </ul>
+      <a href="/en/tours/" class="btn">See Bespoke Options</a>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="wrap about-grid">
+    <div class="about-photo"><img src="images/about-me.jpg" alt="Yuami, founder of Amazing Kyoto" style="width:100%;height:100%;object-fit:cover;"></div>
+    <div>
+      <div class="eyebrow">Beyond the Guidebooks, Into the Heart</div>
+      <h2>About Me</h2>
+      <details class="about-details">
+        <summary>Read the Story</summary>
+        <blockquote>
+          <p>"After a decade in the tourism industry, I've realized that the best of Kyoto isn't found on a map — it's felt in the silence of a morning temple and seen in the backstreets where the tour buses don't go.</p>
+          <p>In 2025, I founded 月阿弥 (Yuami) to bring back the 'human touch' to travel. As your local host, my mission is simple: to share the stories, the Zen, and the authentic pulse of my city with the care and expertise of a 10-year veteran.</p>
+          <p>I don't just show you Kyoto; I help you live it."</p>
+        </blockquote>
+      </details>
+      <div class="about-founder">— Yuami, Founder</div>
+    </div>
+  </div>
+</section>
+
+<section class="social-strip">
+  <h3>Follow us on Instagram — <a class="handle" href="https://instagram.com/yuuue2025" target="_blank" rel="noopener">@yuuue2025</a></h3>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>Company</h4>
+        <div class="company">株式会社月阿弥</div>
+        <div class="member">Member of ANTA<br>All Nippon Travel Agents Association</div>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <address>
+          京都市北区上賀茂朝露ケ原町30-19 タマヤビル609<br>
+          Tel：080-8496-5034<br>
+          FAX：075-585-5682
+        </address>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <div class="social-icons">
+          <a class="icon-line" href="https://line.me/ti/p/md24dAW9Ax" target="_blank" rel="noopener" aria-label="LINE">
+            <svg viewBox="0 0 24 24"><path d="M4 11.5C4 7.4 7.8 4 12.5 4S21 7.4 21 11.5c0 3.7-3.3 6.8-7.7 7.4-.3.05-.7.3-.8.7l-.4 1.5c-.05.3-.3.4-.5.3-1.4-.6-2.2-1-3.5-1.9C5 18.3 4 15.1 4 11.5Z"/><path d="M8 10v3M11 10v3M14 10v2.2c0 .5.7.7.9.3l1.6-2.5"/></svg>
+          </a>
+          <a class="icon-whatsapp" href="https://wa.me/qr/3MGQVMOFTBGHD1" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.8L4 20.5l4.3-1.1A8.5 8.5 0 1 0 12 3.5Z"/><path d="M8.7 8.6c.2-.5.5-.5.7-.5h.5c.2 0 .4 0 .5.4.2.5.6 1.5.6 1.6.1.1.1.3 0 .4-.1.2-.2.3-.3.4-.1.2-.3.3-.1.6.2.4.9 1.4 1.9 2.2 1.3 1 2.1 1.3 2.4 1.1.2-.1.4-.4.6-.6.2-.2.4-.3.6-.2.2.1 1.4.7 1.6.8.2.1.4.2.4.3.1.4-.1 1-.4 1.4-.3.4-1.1.8-1.7.8-1.1 0-2.7-.5-4.7-2.3-2.3-2.1-3-4-3.1-4.4-.1-.4-.5-1.5.5-2.9Z"/></svg>
+          </a>
+          <a class="icon-email" href="mailto:yuami5128@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24"><rect x="3.5" y="6" width="17" height="12" rx="1.5"/><path d="M4.5 7.5L12 13l7.5-5.5"/></svg>
+          </a>
+          <a class="icon-instagram" href="https://instagram.com/yuuue2025" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="0.8" fill="#fff" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Amazing Kyoto / 株式会社月阿弥</span>
+      <span>EN · 简 · 繁</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

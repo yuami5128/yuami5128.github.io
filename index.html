@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amazing Kyoto</title>
+<meta http-equiv="refresh" content="0; url=/en/">
+<script>
+  (function () {
+    var lang = (navigator.language || navigator.userLanguage || "en").toLowerCase();
+    var target = "/en/";
+    if (lang.indexOf("zh-tw") === 0 || lang.indexOf("zh-hk") === 0) {
+      target = "/zh-tw/";
+    } else if (lang.indexOf("zh") === 0) {
+      target = "/zh-cn/";
+    }
+    window.location.replace(target);
+  })();
+</script>
+<style>
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; background:#0f0f0e; color:#f5f4ef; display:flex; align-items:center; justify-content:center; height:100vh; margin:0; text-align:center;}
+  a{color:#F5C842; text-decoration:none; border-bottom:1px solid #F5C842;}
+  p{font-size:15px; line-height:1.8;}
+</style>
+</head>
+<body>
+  <p>
+    Redirecting to Amazing Kyoto…<br>
+    <a href="/en/">English</a> &nbsp;|&nbsp;
+    <a href="/zh-cn/">简体中文</a> &nbsp;|&nbsp;
+    <a href="/zh-tw/">繁體中文</a>
+  </p>
+</body>
+</html>
