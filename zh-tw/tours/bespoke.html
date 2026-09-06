@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>私人客製體驗 — Amazing Kyoto</title>
+<meta name="description" content="京都及周邊地區的私人客製一日體驗——藝術建築、山中秘境、茶與酒。或者告訴我們你的喜好，我們為你設計專屬一天。">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--font-body:'Noto Sans','Noto Sans SC','Noto Sans TC',sans-serif;}
+  body{font-family:var(--font-body);}
+  .langswitch{display:flex; gap:8px; font-family:var(--font-body); font-size:13px; margin-left:20px;}
+  .langswitch a{opacity:0.55; padding:5px 9px; border:1px solid transparent; border-radius:6px; color:inherit; text-decoration:none;}
+  .langswitch a.active{opacity:1; color:#1A1A1A; border-color:#E8E7E3; background:#F5C842; font-weight:700;}
+  nav{display:flex; align-items:center; justify-content:space-between;}
+</style>
+
+
+
+<style>
+:root {
+  --ink: #1A1A1A;
+  --page: #FFFFFF;
+  --muted: #777773;
+  --divider: #E8E7E3;
+  --warm: #F5C842;
+  --accent-txt: #1A1A1A;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #EDECE8;
+    --page: #111110;
+    --muted: #9B9A95;
+    --divider: #2A2A28;
+  }
+}
+:root[data-theme="dark"] {
+  --ink: #EDECE8;
+  --page: #111110;
+  --muted: #9B9A95;
+  --divider: #2A2A28;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--page); color: var(--ink); font-family: var(--font-body, 'Inter', sans-serif); line-height: 1.6; }
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 48px; border-bottom: 1px solid var(--divider);
+}
+.nav-logo { font-size: 1rem; font-weight: 600; letter-spacing: .03em; }
+.nav-links a { font-size: .95rem; color: var(--muted); }
+.nav-links a:hover { color: var(--ink); }
+
+/* PAGE HEADER */
+.page-header {
+  text-align: center; padding: 60px 24px 48px;
+  border-bottom: 1px solid var(--divider);
+  background: linear-gradient(180deg, rgba(245,200,66,0.14) 0%, rgba(245,200,66,0) 100%);
+}
+.page-header .eyebrow {
+  font-size: .7rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 14px;
+}
+.page-header h1 { font-size: 2rem; font-weight: 700; letter-spacing: -.01em; }
+.page-header .sub { font-size: 1.2rem; color: var(--muted); margin-top: 10px; }
+
+/* SERVICE LIST */
+.service-list { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+.service-item {
+  display: grid; grid-template-columns: 340px 1fr;
+  gap: 48px; padding: 56px 0;
+  border-bottom: 1px solid var(--divider);
+  align-items: center;
+}
+.service-item:last-child { border-bottom: none; }
+
+.service-img {
+  width: 100%; aspect-ratio: 4/3; min-height:180px;
+  background-size: cover; background-position: center;
+  background-color: var(--divider);
+}
+
+.service-body {}
+.service-body .tag {
+  font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 12px;
+}
+.service-body h2 {
+  font-size: 1.4rem; font-weight: 700; line-height: 1.3;
+  margin-bottom: 10px; text-wrap: balance;
+}
+.service-body .desc {
+  font-size: 1.2rem; color: var(--muted); line-height: 1.7;
+  margin-bottom: 20px;
+}
+.service-meta {
+  display: flex; gap: 24px; margin-bottom: 22px;
+  font-size: 1.05rem; color: var(--muted);
+}
+.service-meta .dot { color: var(--warm); margin-right: 4px; }
+.price {
+  font-size: 1.3rem; font-weight: 700; margin-bottom: 22px; color: #8a6d0a;
+  background: rgba(245,200,66,0.18); display:inline-block;
+  padding: 6px 14px; border-radius: 6px;
+}
+.read-more {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 1.1rem; font-weight: 700; letter-spacing: .04em;
+  border-bottom: 2px solid var(--warm); padding-bottom: 2px;
+  transition: gap .18s;
+}
+.read-more:hover { gap: 12px; }
+
+/* PLACEHOLDER */
+.placeholder-wrap {
+  max-width: 900px; margin: 0 auto; padding: 0 24px;
+  display: grid; grid-template-columns: 340px 1fr;
+  gap: 48px; align-items: center; padding-top: 72px; padding-bottom: 80px;
+}
+.placeholder-wrap .service-img { aspect-ratio: 4/3; filter: brightness(.85); }
+.placeholder-body {}
+.placeholder-body .tag {
+  font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 12px;
+}
+.placeholder-body h2 { font-size: 1.55rem; font-weight: 700; margin-bottom: 14px; }
+.placeholder-body p { font-size: 1.2rem; color: var(--muted); line-height: 1.75; margin-bottom: 24px; }
+.contact-btn {
+  display: inline-block; padding: 15px 34px;
+  background: var(--warm); color: #1A1A1A;
+  font-size: 1.05rem; font-weight: 700; letter-spacing: .05em;
+}
+.contact-btn:hover { opacity: .88; }
+
+/* DESIGN YOUR OWN DAY — reuses .page-header and .service-item modules */
+.design-own-section{margin-top:16px; border-top:1px solid var(--divider); width:100%;}
+.design-own-section .service-item{max-width:900px; margin:0 auto; padding-left:24px; padding-right:24px; padding-top:32px;}
+.design-own-header{
+  border-bottom:none; padding:56px 24px 32px; width:100%; box-sizing:border-box;
+  border-radius:0; margin:0;
+  background: linear-gradient(180deg, rgba(212,163,32,0.24) 0%, rgba(212,163,32,0) 100%);
+}
+.design-own-header h1{font-size:1.7rem; color:#242422;}
+.design-own-header .sub{color:var(--muted);}
+
+/* BACK */
+.back-bar { padding: 14px 48px; font-size: .9rem; color: var(--muted); }
+.back-bar a { color: var(--muted); }
+.back-bar a:hover { color: var(--ink); }
+
+@media (max-width: 680px) {
+  nav { padding: 16px 20px; }
+  .service-item, .placeholder-wrap { grid-template-columns: 1fr; gap: 24px; padding: 36px 0; }
+  .service-img { aspect-ratio: 16/9; }
+  .page-header { padding: 40px 20px 32px; }
+  .page-header h1 { font-size: 1.8rem; }
+  .design-own-header h1{font-size:1.4rem;}
+}
+</style>
+
+</head>
+<body>
+<nav>
+  <a href="../" class="nav-logo">Amazing Kyoto</a>
+  <div class="nav-links"><a href="../">首頁</a></div><div class="langswitch"><a href="../../en/tours/bespoke.html">EN</a><a href="../../zh-cn/tours/bespoke.html">简</a><a href="../tours/bespoke.html" class="active">繁</a></div>
+</nav>
+<div class="back-bar"><a href="../">← 返回首頁</a></div>
+<div class="page-header">
+  <div class="eyebrow">Amazing Kyoto</div>
+  <h1>私人客製體驗</h1>
+  <div class="sub">融合十年本地智慧與私密舒適，為您量身打造專屬京都故事</div>
+</div>
+
+<div class="service-list">
+  <div class="service-item">
+    <div class="service-img" style="background-image:url('../images/tours/miho-hero.jpg');"></div>
+    <div class="service-body">
+      <div class="tag">藝術與建築</div>
+      <h2>京都之外・建築與自然之旅</h2>
+      <p class="desc">離開京都，走進滋賀的山野——世界級建築、藝術、自然與日本當代創意在此交會的私人一日。</p>
+<div class="service-meta"><span><span class="dot">●</span>私人包團</span><span><span class="dot">●</span>2–6位</span></div>
+<div class="price">From JP¥50,000</div>
+      <a href="miho-lacollina.html" class="read-more">查看詳情 →</a>
+    </div>
+  </div>
+  <div class="service-item">
+    <div class="service-img" style="background-image:url('../images/tours/kifune-ohara-hero.jpg');"></div>
+    <div class="service-body">
+      <div class="tag">山野秘境</div>
+      <h2>京都山隱・水聲與古寺</h2>
+      <p class="desc">走進京都以北的清涼山野——川床料理、靈驗神社與大原靜謐古寺的私人一日。</p>
+<div class="service-meta"><span><span class="dot">●</span>私人包團</span><span><span class="dot">●</span>2–6位</span></div>
+<div class="price">From JP¥50,000</div>
+      <a href="kifune-ohara.html" class="read-more">查看詳情 →</a>
+    </div>
+  </div>
+  <div class="service-item">
+    <div class="service-img" style="background-image:url('../images/tours/uji-fushimi-hero.jpg');"></div>
+    <div class="service-body">
+      <div class="tag">茶與酒</div>
+      <h2>抹茶與清酒 · 京都一水兩味</h2>
+      <p class="desc">品味京都兩大手藝的私人一日——宇治的茶室與伏見的酒藏。</p>
+<div class="service-meta"><span><span class="dot">●</span>私人包團</span><span><span class="dot">●</span>2–6位</span></div>
+<div class="price">From JP¥50,000</div>
+      <a href="uji-fushimi.html" class="read-more">查看詳情 →</a>
+    </div>
+</div>
+</div>
+
+<div class="design-own-section">
+  <div class="page-header design-own-header">
+    <h1>為你私人客製</h1>
+    <div class="sub">告訴我你的喜好，我來為你設計這一天。</div>
+  </div>
+  <div class="service-item">
+    <div class="service-img" style="background-image:url('../images/bespoke.jpg'); background-position:center 25%; filter:saturate(0.6) brightness(0.95);"></div>
+    <div class="service-body">
+      <div class="service-meta"><span><span class="dot">●</span>私人包團</span><span><span class="dot">●</span>2–6位</span></div>
+      <a href="../index.html#contact" class="read-more">開始對話 →</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

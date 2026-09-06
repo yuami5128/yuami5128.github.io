@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>騎行導覽 — Amazing Kyoto</title>
+<meta name="description" content="京都私家騎行導覽，運河、神社與隱秘街巷一網打盡。">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&display=swap">
+<style>:root { --font-body: 'Noto Sans TC',sans-serif; }</style>
+
+<style>
+:root {
+  --ink: #1A1A1A;
+  --page: #FFFFFF;
+  --muted: #777773;
+  --divider: #E8E7E3;
+  --warm: #F5C842;
+  --accent-txt: #1A1A1A;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #EDECE8;
+    --page: #111110;
+    --muted: #9B9A95;
+    --divider: #2A2A28;
+  }
+}
+:root[data-theme="dark"] {
+  --ink: #EDECE8;
+  --page: #111110;
+  --muted: #9B9A95;
+  --divider: #2A2A28;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--page); color: var(--ink); font-family: var(--font-body, 'Inter', sans-serif); line-height: 1.6; }
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 48px; border-bottom: 1px solid var(--divider);
+}
+.nav-logo { font-size: 1rem; font-weight: 600; letter-spacing: .03em; }
+.nav-links a { font-size: .95rem; color: var(--muted); }
+.nav-links a:hover { color: var(--ink); }
+
+/* PAGE HEADER */
+.page-header {
+  text-align: center; padding: 60px 24px 48px;
+  border-bottom: 1px solid var(--divider);
+}
+.page-header .eyebrow {
+  font-size: .7rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 14px;
+}
+.page-header h1 { font-size: 2rem; font-weight: 700; letter-spacing: -.01em; }
+.page-header .sub { font-size: 1.2rem; color: var(--muted); margin-top: 10px; }
+
+/* SERVICE LIST */
+.service-list { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+.service-item {
+  display: grid; grid-template-columns: 340px 1fr;
+  gap: 48px; padding: 56px 0;
+  border-bottom: 1px solid var(--divider);
+  align-items: center;
+}
+.service-item:last-child { border-bottom: none; }
+
+.service-img {
+  width: 100%; aspect-ratio: 4/3;
+  background-size: cover; background-position: center;
+  background-color: var(--divider);
+}
+
+.service-body {}
+.service-body .tag {
+  font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 12px;
+}
+.service-body h2 {
+  font-size: 1.4rem; font-weight: 700; line-height: 1.3;
+  margin-bottom: 10px; text-wrap: balance;
+}
+.service-body .desc {
+  font-size: 1.2rem; color: var(--muted); line-height: 1.7;
+  margin-bottom: 20px;
+}
+.service-meta {
+  display: flex; gap: 24px; margin-bottom: 22px;
+  font-size: 1.05rem; color: var(--muted);
+}
+.service-meta .dot { color: var(--warm); margin-right: 4px; }
+.price {
+  font-size: 1.3rem; font-weight: 700; margin-bottom: 22px; color: var(--ink);
+}
+.read-more {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 1.1rem; font-weight: 700; letter-spacing: .04em;
+  border-bottom: 2px solid var(--warm); padding-bottom: 2px;
+  transition: gap .18s;
+}
+.read-more:hover { gap: 12px; }
+
+/* PLACEHOLDER */
+.placeholder-wrap {
+  max-width: 900px; margin: 0 auto; padding: 0 24px;
+  display: grid; grid-template-columns: 340px 1fr;
+  gap: 48px; align-items: center; padding-top: 72px; padding-bottom: 80px;
+}
+.placeholder-wrap .service-img { aspect-ratio: 4/3; filter: brightness(.85); }
+.placeholder-body {}
+.placeholder-body .tag {
+  font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 12px;
+}
+.placeholder-body h2 { font-size: 1.55rem; font-weight: 700; margin-bottom: 14px; }
+.placeholder-body p { font-size: 1.2rem; color: var(--muted); line-height: 1.75; margin-bottom: 24px; }
+.contact-btn {
+  display: inline-block; padding: 15px 34px;
+  background: var(--warm); color: #1A1A1A;
+  font-size: 1.05rem; font-weight: 700; letter-spacing: .05em;
+}
+.contact-btn:hover { opacity: .88; }
+
+/* BACK */
+.back-bar { padding: 14px 48px; font-size: .9rem; color: var(--muted); }
+.back-bar a { color: var(--muted); }
+.back-bar a:hover { color: var(--ink); }
+
+@media (max-width: 680px) {
+  nav { padding: 16px 20px; }
+  .service-item, .placeholder-wrap { grid-template-columns: 1fr; gap: 24px; padding: 36px 0; }
+  .service-img { aspect-ratio: 16/9; }
+  .page-header { padding: 40px 20px 32px; }
+  .page-header h1 { font-size: 1.8rem; }
+}
+</style>
+
+
+<style>
+  :root{--font-body:'Noto Sans SC','Noto Sans TC','Noto Sans',sans-serif;}
+  .langswitch{display:flex; gap:8px; font-size:13px; margin-left:20px;}
+  .langswitch a{opacity:0.55; padding:5px 9px; border:1px solid transparent; border-radius:6px; color:inherit; text-decoration:none;}
+  .langswitch a.active{opacity:1; color:#1A1A1A; border-color:#E8E7E3; background:#F5C842; font-weight:700;}
+  nav{display:flex; align-items:center; justify-content:space-between;}
+</style>
+</head>
+<body>
+<nav>
+  <a href="../" class="nav-logo">Amazing Kyoto</a>
+  <div class="nav-links"><a href="../">首頁</a></div><div class="langswitch"><a href="../tours/cycling.html" class="active">繁</a><a href="../../en/tours/cycling.html">EN</a><a href="../../zh-cn/tours/cycling.html">简</a></div>
+</nav>
+<div class="back-bar"><a href="../">← 返回首頁</a></div>
+<div class="page-header">
+  <div class="eyebrow">Amazing Kyoto</div>
+  <h1>騎行行程</h1>
+</div>
+
+<div class="service-list">
+  <div class="service-item">
+    <div class="service-img" style="background-image:url('../images/tours/tourslist-cycling-shrine.jpg');"></div>
+    <div class="service-body">
+      <h2>避開人潮・神在京都單車之旅</h2>
+      <p class="desc">何必擠在擁擠的觀光巴士上？不如騎上單車，穿行京都的靈魂。</p>
+      <div class="service-meta">
+        <span><span class="dot">●</span>4小時</span>
+        <span><span class="dot">●</span>最多10位</span>
+      </div>
+      <div class="price">¥9,000</div>
+      <a href="shrine-cycling.html" class="read-more">了解詳情 →</a>
+    </div>
+  </div>
+  <div class="service-item">
+    <div class="service-img" style="background-image:url('../images/tours/tourslist-cycling-afternoon.jpg');"></div>
+    <div class="service-body">
+      <h2>隱秘京都騎行：運河、禪寺與鴨川</h2>
+      <p class="desc">只有慢下來，京都才真正向你展開。</p>
+      <div class="service-meta">
+        <span><span class="dot">●</span>3小時</span>
+        <span><span class="dot">●</span>最多10位</span>
+      </div>
+      <div class="price">¥10,000</div>
+      <a href="afternoon-cycling.html" class="read-more">了解詳情 →</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

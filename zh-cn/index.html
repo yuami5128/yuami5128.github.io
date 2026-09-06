@@ -48,17 +48,22 @@
   .btn{
     display:inline-flex;
     align-items:center;
-    gap:8px;
+    gap:10px;
     font-family:var(--mono);
-    font-size:12px;
-    letter-spacing:0.1em;
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:0.06em;
     text-transform:uppercase;
-    padding:14px 26px;
-    border:1px solid var(--ink);
-    color:var(--ink);
-    transition:background .25s ease, color .25s ease;
+    padding:16px 34px;
+    border:none;
+    border-radius:999px;
+    background:var(--warm);
+    color:#3d2e05;
+    box-shadow:0 3px 0 #d4a320;
+    transition:transform .15s ease, box-shadow .15s ease;
   }
-  .btn:hover{background:var(--ink); color:var(--page);}
+  .btn:hover{transform:translateY(1px); box-shadow:0 2px 0 #d4a320;}
+  .btn::after{content:"→"; font-size:16px;}
   .btn.solid{background:var(--accent); border-color:var(--accent); color:#fff;}
   .btn.solid:hover{background:var(--ink); border-color:var(--ink);}
 
@@ -110,9 +115,9 @@
   .hero-inner{position:relative; z-index:2;}
   .hero-inner{padding:0 32px 48px; max-width:1180px; margin:0 auto; width:100%; display:flex; flex-direction:column; align-items:flex-start;}
   .hero-tag{font-family:var(--mono); font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--warm); opacity:1; margin-bottom:22px;}
-  .hero h1{font-size:clamp(40px, 6.4vw, 76px); font-weight:600; line-height:1.05; letter-spacing:-0.01em; text-shadow:0 2px 30px rgba(0,0,0,0.4);}
+  .hero h1{font-size:clamp(46px, 7.2vw, 84px); font-weight:600; line-height:1.05; letter-spacing:-0.01em; text-shadow:0 2px 30px rgba(0,0,0,0.4);}
   .hero-break{display:none;}
-  .hero p{font-family:var(--sans); font-size:clamp(16px,1.6vw,19px); font-weight:400; margin-top:16px; opacity:0.9; max-width:520px; line-height:1.5; text-shadow:0 1px 14px rgba(0,0,0,0.45);}
+  .hero p{font-family:var(--sans); font-size:clamp(17px,3.2vw,22px); font-weight:400; margin-top:16px; opacity:0.9; max-width:none; white-space:nowrap; line-height:1.5; text-shadow:0 1px 14px rgba(0,0,0,0.45);}
   .hero .btn{margin-top:28px; background:#fff; border-color:#fff; color:var(--ink);}
   .hero .btn:hover{background:var(--accent); border-color:var(--accent); color:#fff;}
 
@@ -124,7 +129,7 @@
     letter-spacing:-0.01em; margin-bottom:18px;
   }
   .intro p.lead{
-    font-family:var(--sans); font-size:clamp(14px,1.4vw,16px); line-height:1.6;
+    font-family:var(--sans); font-size:clamp(17px,2vw,19px); line-height:1.65;
     max-width:600px; margin:0 auto; color:var(--ink-soft);
   }
   .services{
@@ -144,7 +149,7 @@
   .service.walking .icon svg{stroke:#2C3E63;}
   .service.cycling .icon svg{stroke:#E08A34;}
   .service.bespoke .icon svg{stroke:#2F7A6E;}
-  .service .label{font-family:var(--sans); font-weight:600; font-size:13px; letter-spacing:0.01em;}
+  .service .label{font-family:var(--sans); font-weight:600; font-size:17px; letter-spacing:0.01em;}
 
   /* ---------- TOUR SECTIONS ---------- */
   .tour-section{padding:88px 0; background:var(--page);}
@@ -171,14 +176,14 @@
   }
   .copy .eyebrow{margin-bottom:14px;}
   .copy h2{font-family:var(--serif); font-weight:700; font-size:clamp(26px,3.6vw,40px); letter-spacing:-0.01em; margin-bottom:16px;}
-  .copy .desc{color:var(--ink-soft); font-size:14px; max-width:360px; margin-bottom:26px;}
+  .copy .desc{color:var(--ink-soft); font-size:19px; max-width:380px; margin-bottom:26px;}
   .route-list{list-style:none; margin-bottom:36px; max-width:280px;}
   .route-list li{
-    font-family:var(--sans); font-size:14px;
-    padding:12px 0; border-bottom:1px solid var(--line);
-    display:flex; align-items:center; gap:12px;
+    font-family:var(--sans); font-size:18px; line-height:1.4;
+    padding:14px 0; border-bottom:1px solid var(--line);
+    display:flex; align-items:flex-start; gap:12px;
   }
-  .route-list li::before{content:"→"; color:var(--accent); font-family:var(--mono);}
+  .route-list li::before{content:"→"; color:var(--accent); font-family:var(--mono); margin-top:2px; flex-shrink:0;}
 
   /* ---------- ABOUT ---------- */
   .about{background:var(--ink); color:var(--page); padding:70px 0;}
@@ -188,7 +193,7 @@
   .about .eyebrow{color:var(--warm); font-size:14px; letter-spacing:0.16em;}
   .about h2{font-size:clamp(28px,3.6vw,40px); margin:14px 0 28px;}
   .about blockquote{
-    font-family:var(--sans); font-weight:400; font-size:16px; line-height:1.7;
+    font-family:var(--sans); font-weight:400; font-size:19px; line-height:1.75;
     color:#d8d5cb; max-width:600px;
   }
   .about blockquote p{margin-bottom:20px;}
@@ -220,8 +225,23 @@
   }
 
   /* ---------- SOCIAL STRIP ---------- */
-  .social-strip{padding:70px 0; text-align:center; border-bottom:1px solid var(--line); background:var(--page);}
-  .social-strip h3{font-family:var(--sans); font-weight:500; font-size:15px; text-transform:uppercase; letter-spacing:0.08em;}
+  /* ---------- REVIEWS MARQUEE + SOCIAL STRIP ---------- */
+  .proof-strip{background:var(--page); border-bottom:1px solid var(--line); display:block;}
+  .reviews-track{overflow:hidden; padding:32px 0 8px; width:100%;}
+  .reviews-marquee{display:flex; gap:20px; width:max-content; animation:reviews-scroll 55s linear infinite; will-change:transform;}
+  .reviews-track:hover .reviews-marquee{animation-play-state:paused;}
+  @keyframes reviews-scroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  .review-card{
+    flex:0 0 340px; background:var(--card); border:1px solid var(--line); border-radius:12px;
+    padding:22px 24px; display:flex; flex-direction:column; gap:12px;
+  }
+  .review-card p{font-size:15px; line-height:1.75; color:var(--ink-soft); font-style:italic;}
+  .review-card .review-author{font-family:var(--mono); font-size:12px; letter-spacing:0.02em; color:var(--accent);}
+  .social-strip{padding:36px 0 44px; text-align:center; background:var(--page);}
+  .social-strip h3{font-family:var(--sans); font-weight:500; font-size:17px; text-transform:uppercase; letter-spacing:0.08em;}
   .social-strip a.handle{color:var(--accent); font-family:var(--mono);}
 
   /* ---------- FOOTER ---------- */
@@ -229,15 +249,15 @@
   .footer-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:40px; padding-bottom:50px; border-bottom:1px solid var(--line);}
   footer h4{font-family:var(--mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:16px;}
   footer .company{font-family:var(--serif); font-size:20px; margin-bottom:6px;}
-  footer .member{color:#8a6a14; font-size:13px; font-weight:700; line-height:1.5; background:#FBF1D6; border:1px solid #B8860B; border-radius:6px; padding:10px 14px; margin-top:10px; display:inline-block;}
-  footer address{font-style:normal; font-size:14px; color:var(--ink-soft); line-height:1.8;}
-  .social-icons{display:flex; gap:14px; margin-top:18px;}
+  footer .member{color:#8a6a14; font-size:16px; font-weight:700; line-height:1.6; background:#FBF1D6; border:1.5px solid #B8860B; border-radius:8px; padding:14px 18px; margin-top:10px; display:inline-block;}
+  footer address{font-style:normal; font-size:16px; color:var(--ink-soft); line-height:1.8;}
+  .social-icons{display:flex; gap:16px; margin-top:18px;}
   .social-icons a{
-    width:40px; height:40px; border-radius:50%;
+    width:56px; height:56px; border-radius:50%;
     display:flex; align-items:center; justify-content:center;
     transition:transform .2s ease, filter .2s ease;
   }
-  .social-icons a svg{width:19px; height:19px; stroke:#fff; fill:none; stroke-width:1.6;}
+  .social-icons a svg{width:26px; height:26px; stroke:#fff; fill:none; stroke-width:1.6;}
   .social-icons a:hover{transform:translateY(-2px); filter:brightness(1.08);}
   .social-icons a.icon-wechat{background:#07C160;}
   .modal-overlay{position:fixed; inset:0; background:rgba(20,20,18,0.6); display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity .25s ease; z-index:200;}
@@ -254,6 +274,7 @@
   /* ---------- RESPONSIVE ---------- */
   @media (max-width:860px){
     .navlinks{display:none;}
+    .review-card{flex:0 0 280px; padding:18px 20px;}
     .hero{height:78vw; min-height:280px; max-height:360px;}
     .hero-break{display:block;}
     .intro{padding:48px 0 0;}
@@ -304,7 +325,6 @@
   <div class="hero-inner">
     <h1>Amazing<br class="hero-break">Kyoto</h1>
     <p>本地向导带您品鉴京都韵味</p>
-    <a href="#tours" class="btn">查看行程</a>
   </div>
 </section>
 
@@ -347,10 +367,10 @@
       <h2>隐京都 · 深巷漫步</h2>
       <p class="desc">放慢脚步，漫步于京都巷弄间仍在呼吸的历史。</p>
       <ul class="route-list">
-        <li><a href="tours/morning-ritual.html">晨间仪式</a></li>
+        <li>晨祓之声</li>
         <li>夜色花街</li>
       </ul>
-      <a href="/zh-cn/tours/" class="btn">查看徒步行程</a>
+      <a href="tours/walking.html" class="btn">查看徒步行程</a>
     </div>
   </div>
 </section>
@@ -362,11 +382,11 @@
       <h2>惬意骑行之旅</h2>
       <p class="desc">感受城市微风，潜入真实京都</p>
       <ul class="route-list">
-        <li><a href="tours/shrine-cycling.html">神在京都</a></li>
-        <li><a href="tours/afternoon-cycling.html">绿意京都</a></li>
+        <li>神在京都</li>
+        <li>绿意京都</li>
         <li>禅茶一味</li>
       </ul>
-      <a href="/zh-cn/tours/" class="btn">查看骑行行程</a>
+      <a href="tours/cycling.html" class="btn">查看骑行行程</a>
     </div>
   </div>
 </section>
@@ -376,14 +396,65 @@
     <div class="media" style="background-image:url('images/bespoke.jpg'); background-position:center 32%;"></div>
     <div class="copy">
       <h2>定制专属行程</h2>
-      <p class="desc">融合十年本地智慧与私密舒适，为您量身定制专属京都故事</p>
+      <p class="desc">从世界级艺术建筑，到山野秘境与传承百年的茶与酒——三段专属旅程，完全为你而设计。</p>
       <ul class="route-list">
-        <li>专属定制游</li>
-        <li>别样京都</li>
-        <li>特别体验</li>
+        <li>京都之外・建筑与自然之旅</li>
+        <li>京都山隐・水声与古寺</li>
+        <li>抹茶与清酒 · 京都一水两味</li>
       </ul>
-      <a href="/zh-cn/tours/" class="btn">查看定制方案</a>
+      <a href="tours/bespoke.html" class="btn">查看专属体验</a>
     </div>
+  </div>
+</section>
+
+<section class="proof-strip">
+  <div class="reviews-track">
+    <div class="reviews-marquee">
+      <div class="review-card">
+        <p>"我们度过了一个宁静美好的下午，骑行穿过京都最平静优美的角落——运河小径、神社庭院，甚至在河边戏水。别犹豫，赶紧预约吧。"</p>
+        <span class="review-author">🇬🇧 认证客人 — 英国</span>
+      </div>
+      <div class="review-card">
+        <p>"骑行拜访了十座不同的神社，Yuami 展现出令人印象深刻的专业知识。比起普通徒步团，这趟体验多了一层维度，强烈推荐！"</p>
+        <span class="review-author">🇳🇱 认证客人 — 荷兰</span>
+      </div>
+      <div class="review-card">
+        <p>"我们看到了远离游客区的寺院与神社，学到了没有专业讲解就无法理解的知识，简直太棒了！"</p>
+        <span class="review-author">🇩🇪 认证客人 — 德国，德语翻译</span>
+      </div>
+      <div class="review-card">
+        <p>"这是我们在日本最难忘的一个早晨！便当早餐也非常美味。"</p>
+        <span class="review-author">🇺🇸 认证客人 — 美国</span>
+      </div>
+      <div class="review-card">
+        <p>"Yuami 的行程安排得非常好——她把神道文化讲解得如此透彻，让我们那一天也感觉成为了其中一部分。非常感谢！"</p>
+        <span class="review-author">🇮🇹 认证客人 — 意大利，意大利语翻译</span>
+      </div>
+      <!-- 重复一遍实现无缝循环 -->
+      <div class="review-card" aria-hidden="true">
+        <p>"我们度过了一个宁静美好的下午，骑行穿过京都最平静优美的角落——运河小径、神社庭院，甚至在河边戏水。别犹豫，赶紧预约吧。"</p>
+        <span class="review-author">🇬🇧 认证客人 — 英国</span>
+      </div>
+      <div class="review-card" aria-hidden="true">
+        <p>"骑行拜访了十座不同的神社，Yuami 展现出令人印象深刻的专业知识。比起普通徒步团，这趟体验多了一层维度，强烈推荐！"</p>
+        <span class="review-author">🇳🇱 认证客人 — 荷兰</span>
+      </div>
+      <div class="review-card" aria-hidden="true">
+        <p>"我们看到了远离游客区的寺院与神社，学到了没有专业讲解就无法理解的知识，简直太棒了！"</p>
+        <span class="review-author">🇩🇪 认证客人 — 德国，德语翻译</span>
+      </div>
+      <div class="review-card" aria-hidden="true">
+        <p>"这是我们在日本最难忘的一个早晨！便当早餐也非常美味。"</p>
+        <span class="review-author">🇺🇸 认证客人 — 美国</span>
+      </div>
+      <div class="review-card" aria-hidden="true">
+        <p>"Yuami 的行程安排得非常好——她把神道文化讲解得如此透彻，让我们那一天也感觉成为了其中一部分。非常感谢！"</p>
+        <span class="review-author">🇮🇹 认证客人 — 意大利，意大利语翻译</span>
+      </div>
+    </div>
+  </div>
+  <div class="social-strip">
+    <h3>关注我们的 Instagram — <a class="handle" href="https://instagram.com/yuuue2025" target="_blank" rel="noopener">@yuuue2025</a></h3>
   </div>
 </section>
 
@@ -404,10 +475,6 @@
       <div class="about-founder">— Yuami，创始人</div>
     </div>
   </div>
-</section>
-
-<section class="social-strip">
-  <h3>在 Instagram 关注我们 — <a class="handle" href="https://instagram.com/yuuue2025" target="_blank" rel="noopener">@yuuue2025</a></h3>
 </section>
 
 <footer id="contact">
