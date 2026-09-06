@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
 <title>骑行导览 — Amazing Kyoto</title>
 <meta name="description" content="京都私家骑行导览，运河、神社与隐秘街巷一网打尽。">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&display=swap">
@@ -17,22 +18,8 @@
   --warm: #F5C842;
   --accent-txt: #1A1A1A;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --ink: #EDECE8;
-    --page: #111110;
-    --muted: #9B9A95;
-    --divider: #2A2A28;
-  }
-}
-:root[data-theme="dark"] {
-  --ink: #EDECE8;
-  --page: #111110;
-  --muted: #9B9A95;
-  --divider: #2A2A28;
-}
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: var(--page); color: var(--ink); font-family: var(--font-body, 'Inter', sans-serif); line-height: 1.6; }
+html{color-scheme:light;} body { background: var(--page); color: var(--ink); font-family: var(--font-body, 'Inter', sans-serif); line-height: 1.6; color-scheme:light; }
 a { color: inherit; text-decoration: none; }
 
 /* NAV */
