@@ -227,7 +227,7 @@
   /* ---------- SOCIAL STRIP ---------- */
   /* ---------- REVIEWS MARQUEE + SOCIAL STRIP ---------- */
   .proof-strip{background:var(--page); border-bottom:1px solid var(--line); display:block;}
-  .reviews-track{overflow:hidden; padding:32px 0 8px; width:100%;}
+  .reviews-track{overflow:hidden; padding:32px 0 8px; width:100%; isolation:isolate; -webkit-transform:translateZ(0); transform:translateZ(0);}
   .reviews-marquee{display:flex; gap:20px; width:max-content; animation:reviews-scroll 55s linear infinite; will-change:transform;}
   .reviews-track:hover .reviews-marquee{animation-play-state:paused;}
   @keyframes reviews-scroll{
@@ -241,6 +241,12 @@
   .review-card p{font-size:14px; line-height:1.65; color:var(--ink-soft); font-style:italic;}
   .review-card .review-author{font-family:var(--mono); font-size:11px; letter-spacing:0.04em; color:var(--accent); text-transform:uppercase;}
   .social-strip{padding:36px 0 44px; text-align:center; background:var(--page);}
+  .icon-instagram-badge{
+    display:flex; align-items:center; justify-content:center; width:52px; height:52px;
+    border-radius:50%; margin:0 auto 14px;
+    background:linear-gradient(135deg,#F58529,#DD2A7B 45%,#8134AF 70%,#515BD4);
+  }
+  .icon-instagram-badge svg{width:26px; height:26px; stroke:#fff; fill:none; stroke-width:1.6;}
   .social-strip h3{font-family:var(--sans); font-weight:500; font-size:17px; text-transform:uppercase; letter-spacing:0.08em;}
   .social-strip a.handle{color:var(--accent); font-family:var(--mono);}
 
@@ -466,6 +472,9 @@
     </div>
   </div>
   <div class="social-strip">
+    <a class="icon-instagram-badge" href="https://instagram.com/yuuue2025" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="0.8" fill="#fff" stroke="none"/></svg>
+    </a>
     <h3>Follow us on Instagram — <a class="handle" href="https://instagram.com/yuuue2025" target="_blank" rel="noopener">@yuuue2025</a></h3>
   </div>
 </section>
@@ -532,12 +541,6 @@
             </a>
             <span class="label">Email</span>
           </div>
-          <div class="contact-item">
-            <a class="icon-instagram" href="https://instagram.com/yuuue2025" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="0.8" fill="#fff" stroke="none"/></svg>
-            </a>
-            <span class="label">Instagram</span>
-          </div>
         </div>
       </div>
     </div>
@@ -560,5 +563,19 @@
   </div>
 </div>
 
+<script>
+  // 从浏览器"返回/前进"缓存恢复页面时(bfcache)，某些手机浏览器会导致
+  // 带CSS动画的评论跑马灯渲染异常(白屏)，这里强制触发一次重排来修复
+  window.addEventListener('pageshow', function (e) {
+    if (e.persisted) {
+      var track = document.querySelector('.reviews-track');
+      if (track) {
+        track.style.display = 'none';
+        void track.offsetHeight; // 强制浏览器重新计算布局
+        track.style.display = '';
+      }
+    }
+  });
+</script>
 </body>
 </html>
