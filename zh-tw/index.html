@@ -227,7 +227,7 @@
   /* ---------- SOCIAL STRIP ---------- */
   /* ---------- REVIEWS MARQUEE + SOCIAL STRIP ---------- */
   .proof-strip{background:var(--page); border-bottom:1px solid var(--line); display:block;}
-  .reviews-track{overflow:hidden; padding:32px 0 8px; width:100%;}
+  .reviews-track{overflow:hidden; padding:32px 0 8px; width:100%; isolation:isolate; -webkit-transform:translateZ(0); transform:translateZ(0);}
   .reviews-marquee{display:flex; gap:20px; width:max-content; animation:reviews-scroll 55s linear infinite; will-change:transform;}
   .reviews-track:hover .reviews-marquee{animation-play-state:paused;}
   @keyframes reviews-scroll{
@@ -241,6 +241,12 @@
   .review-card p{font-size:15px; line-height:1.75; color:var(--ink-soft); font-style:italic;}
   .review-card .review-author{font-family:var(--mono); font-size:12px; letter-spacing:0.02em; color:var(--accent);}
   .social-strip{padding:36px 0 44px; text-align:center; background:var(--page);}
+  .icon-instagram-badge{
+    display:flex; align-items:center; justify-content:center; width:52px; height:52px;
+    border-radius:50%; margin:0 auto 14px;
+    background:linear-gradient(135deg,#F58529,#DD2A7B 45%,#8134AF 70%,#515BD4);
+  }
+  .icon-instagram-badge svg{width:26px; height:26px; stroke:#fff; fill:none; stroke-width:1.6;}
   .social-strip h3{font-family:var(--sans); font-weight:500; font-size:17px; text-transform:uppercase; letter-spacing:0.08em;}
   .social-strip a.handle{color:var(--accent); font-family:var(--mono);}
 
@@ -367,7 +373,7 @@
     </div>
     <div class="service bespoke">
       <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="10" width="18" height="8" rx="2"/><path d="M6 10 L8 5 H16 L18 10"/><circle cx="7.5" cy="18" r="1.6"/><circle cx="16.5" cy="18" r="1.6"/></svg></div>
-      <div class="label">客製專屬行程</div>
+      <div class="label">私人嚮導</div>
     </div>
   </div>
 </section>
@@ -407,14 +413,14 @@
   <div class="wrap tour-grid">
     <div class="media" style="background-image:url('images/bespoke.jpg'); background-position:center 32%;"></div>
     <div class="copy">
-      <h2>客製專屬行程</h2>
-      <p class="desc">從世界級藝術建築，到山野秘境與傳承百年的茶與酒——三段專屬旅程，完全為你而設計。</p>
+      <h2>私人嚮導・專屬體驗</h2>
+      <p class="desc">從世界級藝術建築，到山野秘境與傳承百年的茶與酒——從飯店接送到最後一站，每段專屬體驗都完全為你而設計。</p>
       <ul class="route-list">
         <li>京都之外・建築與自然之旅</li>
-        <li>京都山隱・水聲與古寺</li>
-        <li>抹茶與清酒 · 京都一水兩味</li>
+        <li>神戶山海・有馬溫泉</li>
+        <li>從京都到若狹</li>
       </ul>
-      <a href="tours/bespoke.html" class="btn">查看專屬體驗</a>
+      <a href="tours/bespoke.html" class="btn">查看更多體驗</a>
     </div>
   </div>
 </section>
@@ -466,6 +472,9 @@
     </div>
   </div>
   <div class="social-strip">
+    <a class="icon-instagram-badge" href="https://instagram.com/yuuue2025" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="0.8" fill="#fff" stroke="none"/></svg>
+    </a>
     <h3>在 Instagram 關注我們 — <a class="handle" href="https://instagram.com/yuuue2025" target="_blank" rel="noopener">@yuuue2025</a></h3>
   </div>
 </section>
@@ -532,12 +541,6 @@
             </a>
             <span class="label">Email</span>
           </div>
-          <div class="contact-item">
-            <a class="icon-instagram" href="https://instagram.com/yuuue2025" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="0.8" fill="#fff" stroke="none"/></svg>
-            </a>
-            <span class="label">Instagram</span>
-          </div>
         </div>
       </div>
     </div>
@@ -560,5 +563,17 @@
   </div>
 </div>
 
+<script>
+  window.addEventListener('pageshow', function (e) {
+    if (e.persisted) {
+      var track = document.querySelector('.reviews-track');
+      if (track) {
+        track.style.display = 'none';
+        void track.offsetHeight;
+        track.style.display = '';
+      }
+    }
+  });
+</script>
 </body>
 </html>

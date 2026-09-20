@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>神戶山海・有馬溫泉 — Amazing Kyoto</title>
+<meta name="description" content="離開京都，前往神戶港區與市街、六甲山開闊景色，最後在有馬溫泉慢下來的私人客製一日行程。">
+<meta name="color-scheme" content="light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#242422;
+    --ink-soft:#5c5b56;
+    --page:#F5F4EF;
+    --card:#FCFCFA;
+    --accent:#242422;
+    --warm:#F5C842;
+    --warm-soft:#FBE9AE;
+    --line:#ddd9d0;
+    --serif: 'Noto Sans', 'Noto Sans SC', 'Noto Sans TC', sans-serif;
+    --sans: 'Noto Sans', 'Noto Sans SC', 'Noto Sans TC', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth; color-scheme:light; background:#F5F4EF;}
+  body{
+    background:var(--page); color:var(--ink); font-family:var(--sans);
+    font-weight:400; line-height:1.6; -webkit-font-smoothing:antialiased; color-scheme:light;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{display:block; max-width:100%;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 32px;}
+
+  /* ---------- NAV ---------- */
+  header{position:sticky; top:0; z-index:50; background:var(--page); border-bottom:1px solid var(--line);}
+  nav{max-width:1180px; margin:0 auto; padding:18px 32px; display:flex; align-items:center; justify-content:space-between; gap:24px;}
+  .logo{font-weight:700; font-size:18px;}
+  .logo span{opacity:.5; font-size:14px; font-weight:400;}
+  .navlinks{display:flex; gap:28px; font-family:var(--mono); font-size:13px; letter-spacing:0.06em; text-transform:uppercase;}
+  .langswitch{display:flex; gap:8px; font-family:var(--mono); font-size:14px;}
+  .langswitch a{opacity:0.55; padding:6px 10px; border:1px solid transparent; border-radius:6px;}
+  .langswitch a.active{opacity:1; color:var(--accent); border-color:var(--line); background:var(--card); font-weight:700;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; height:56vh; min-height:420px; max-height:600px;
+    display:flex; align-items:flex-end; color:#fff; overflow:hidden;
+    isolation:isolate; -webkit-transform:translateZ(0); transform:translateZ(0);
+  }
+  .hero::before{
+    content:""; position:absolute; inset:0;
+    background:#7d8a99 url('../images/tours/kobe-arima-hero.jpg') center 50%/cover no-repeat;
+    z-index:0;
+  }
+  .hero::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(36,36,34,0.15) 0%, rgba(36,36,34,0.7) 100%);
+    z-index:1;
+  }
+  .hero-inner{position:relative; z-index:2; width:100%; max-width:1080px; margin:0 auto; padding:0 32px 42px;}
+  .hero .crumb{font-family:var(--mono); font-size:14px; letter-spacing:0.14em; text-transform:uppercase; color:var(--warm); margin-bottom:14px;}
+  .hero h1{font-size:clamp(28px,4.2vw,48px); font-weight:600; line-height:1.15; letter-spacing:-0.01em; text-shadow:0 2px 26px rgba(0,0,0,0.4); max-width:760px;}
+  .hero .subtitle{font-size:clamp(18px,1.8vw,19px); color:#f1efe6; margin-top:12px; font-weight:500;}
+
+  /* ---------- FACTS BAR ---------- */
+  .facts{border-bottom:1px solid var(--line); background:var(--page);}
+  .facts .wrap{display:flex; flex-wrap:wrap; gap:0;}
+  .fact{flex:1; min-width:180px; padding:22px 24px; border-left:1px solid var(--line);}
+  .fact:first-child{border-left:none; padding-left:0;}
+  .fact .k{font-family:var(--mono); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:4px;}
+  .fact .v{font-size:17px; font-weight:700;}
+  .fact .v small{font-weight:400; color:var(--ink-soft); font-size:13px;}
+
+  /* ---------- INTRO ---------- */
+  .lede{padding:48px 0 4px; background:var(--page);}
+  .lede .tagline{font-size:clamp(20px,2.6vw,25px); font-weight:700; letter-spacing:-0.01em; color:var(--ink); margin-bottom:14px; line-height:1.35;}
+  .lede p.main{font-size:clamp(18px,2vw,22px); line-height:1.65; max-width:680px; font-weight:500; margin-bottom:28px;}
+  .btn{
+    display:inline-block; background:var(--ink); color:var(--page);
+    font-family:var(--mono); font-size:13px; letter-spacing:0.1em; text-transform:uppercase;
+    padding:14px 30px; border-radius:999px; font-weight:500;
+  }
+  .btn:hover{opacity:0.85;}
+  .btn.outline{background:transparent; color:var(--ink); border:1.5px solid var(--ink);}
+
+  /* ---------- THREE SIDES (trio) ---------- */
+  .duo-section{padding:40px 0 24px; background:var(--page);}
+  .duo-section .sec-head{max-width:680px; margin-bottom:40px;}
+  .duo-section .sec-head h2{font-size:clamp(22px,3vw,32px); font-weight:700; letter-spacing:-0.01em;}
+  .duo{display:grid; grid-template-columns:1fr 1fr; gap:28px;}
+  .duo.trio{grid-template-columns:repeat(3,1fr); gap:22px;}
+  .duo-item{background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden;}
+  .duo-item .img{aspect-ratio:4/3; background:#c9c3b3 center/cover no-repeat; background-size:cover; background-position:center;}
+  .duo-item .body{padding:28px 26px 30px;}
+  .duo-item .eyebrow{font-family:var(--sans); font-size:22px; font-weight:700; letter-spacing:-0.01em; color:var(--ink); margin-bottom:8px; text-transform:none;}
+  .duo-item h3{font-size:16px; font-weight:500; color:var(--ink-soft); margin-bottom:12px; line-height:1.3;}
+  .duo-item p.desc{color:var(--ink-soft); font-size:16px; line-height:1.75; margin-bottom:18px;}
+  .duo-item p.desc strong{color:var(--ink); font-weight:700;}
+  .duo-item .why{background:var(--warm-soft); border-radius:10px; padding:16px 18px;}
+  .duo-item .why .label{font-family:var(--mono); font-size:12px; letter-spacing:0.1em; text-transform:uppercase; font-weight:700; margin-bottom:6px; color:#8a6d0a;}
+  .duo-item .why p{font-size:15px; line-height:1.6; color:var(--ink);}
+
+  /* ---------- THE EXPERIENCE (single price card) ---------- */
+  .tiers-section{padding:32px 0 24px; background:var(--page);}
+  .tiers-section .sec-head{max-width:680px; margin-bottom:36px;}
+  .tiers-section .sec-head h2{font-size:clamp(22px,3vw,32px); font-weight:700; letter-spacing:-0.01em;}
+  .tiers{display:grid; grid-template-columns:1fr; max-width:480px;}
+  .tier{border:1px solid var(--line); border-radius:16px; background:var(--card); padding:32px 28px; position:relative; display:flex; flex-direction:column;}
+  .tier.recommended{border:2px solid var(--warm); background:#FFFDF5;}
+  .tier .badge{
+    position:absolute; top:-13px; left:28px; background:var(--warm); color:var(--ink);
+    font-family:var(--mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    padding:5px 14px; border-radius:999px; font-weight:700;
+  }
+  .tier .duration-row{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px;}
+  .tier .duration{font-size:26px; font-weight:700; letter-spacing:-0.01em; line-height:1;}
+  .tier .tier-name{font-size:14px; font-weight:600; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.04em; font-family:var(--mono);}
+  .tier .includes-line{font-size:16px; color:var(--ink-soft); margin-bottom:16px; font-weight:500;}
+  .tier p.desc{font-size:17px; line-height:1.65; color:var(--ink-soft); margin-bottom:22px; flex-grow:1;}
+  .tier .price{font-size:30px; font-weight:700; margin-bottom:6px;}
+  .tier .price small{font-size:16px; font-weight:500; color:var(--ink-soft);}
+  .tier .extra{font-size:16px; color:var(--ink-soft); margin-bottom:24px;}
+  .tier .btn{text-align:center; width:100%;}
+
+  /* ---------- CLEAR PRICE TABLE ---------- */
+  .price-table{border:1px solid var(--line); border-radius:12px; overflow:hidden; margin-bottom:12px;}
+  .price-row{display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; padding:16px 18px; gap:8px 14px;}
+  .price-row + .price-row{border-top:1px solid var(--line);}
+  .price-row.primary{background:var(--warm-soft);}
+  .price-row-label{font-family:var(--mono); font-size:14px; font-weight:600; letter-spacing:0.02em; color:var(--ink-soft);}
+  .price-row.primary .price-row-label{color:#6b5507;}
+  .price-row-amount{font-size:24px; font-weight:700; color:var(--ink); white-space:nowrap;}
+  .price-row.primary .price-row-amount{font-size:30px;}
+  .price-row-amount small{font-size:14px; font-weight:500; color:var(--ink-soft);}
+  .price-note{font-size:14px; line-height:1.55; color:var(--ink-soft); margin-bottom:24px;}
+
+  /* ---------- MAKE IT YOUR OWN (addons) ---------- */
+  .addons-section{padding:16px 0 56px; background:var(--page);}
+  .addons-section .sec-head{max-width:680px; margin-bottom:30px;}
+  .addons-section .sec-head h2{font-size:clamp(20px,2.6vw,26px); font-weight:700;}
+  .addons{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .addon{border:1px solid var(--line); border-radius:14px; padding:24px 22px; background:var(--card);}
+  .addon .cat{font-family:var(--mono); font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--warm); margin-bottom:10px; font-weight:700;}
+  .addon h4{font-size:20px; font-weight:700; margin-bottom:10px;}
+  .addon p{font-size:16px; line-height:1.7; color:var(--ink-soft);}
+
+  /* ---------- INCLUDED / NOT INCLUDED ---------- */
+  .gtk{background:var(--warm-soft); border-top:1px solid var(--warm); border-bottom:1px solid var(--warm); padding:48px 0;}
+  .gtk .grid{display:grid; grid-template-columns:1fr 1fr; gap:40px;}
+  .gtk h3{font-family:var(--mono); font-size:12px; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:18px;}
+  .incl{display:flex; flex-wrap:wrap; gap:10px;}
+  .incl span{background:var(--card); border:1px solid var(--line); border-radius:999px; padding:9px 17px; font-size:16px;}
+  .notincl{list-style:none;}
+  .notincl li{font-size:16px; color:var(--ink-soft); padding:7px 0; position:relative; padding-left:18px;}
+  .notincl li::before{content:"–"; position:absolute; left:0; color:var(--ink-soft);}
+
+  /* ---------- GALLERY ---------- */
+  .gallery{padding:40px 0 40px; background:var(--page);}
+  .gallery h3{font-family:var(--mono); font-size:12px; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:22px; color:var(--ink-soft);}
+  .gallery .grid{display:grid; grid-template-columns:repeat(5,1fr); gap:10px;}
+  .gallery .grid div{aspect-ratio:1/1; background:#c9c3b3 center/cover no-repeat; background-size:cover; background-position:center; border-radius:8px;}
+
+  /* ---------- YOUR PRIVATE DAY (closing) ---------- */
+  .closing-section{padding:40px 0; background:var(--page);}
+  .closing-section .box{background:var(--ink); color:var(--page); border-radius:20px; padding:48px 44px; max-width:820px;}
+  .closing-section h3{font-family:var(--mono); font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--warm); margin-bottom:16px;}
+  .closing-section p{font-size:17px; line-height:1.75; color:#e8e6df; margin-bottom:14px;}
+  .closing-section p strong{color:#fff; font-weight:700;}
+  .closing-section .cta-row{display:flex; gap:14px; margin-top:24px; flex-wrap:wrap;}
+  .closing-section .btn{background:var(--warm); color:var(--ink);}
+  .closing-section .btn.outline{background:transparent; color:var(--page); border:1.5px solid rgba(245,244,239,0.4);}
+
+  /* ---------- CONTACT / BOOK ---------- */
+  .book{padding:48px 0 56px; background:var(--page);}
+  .book .grid{display:grid; grid-template-columns:1.2fr 1fr; gap:48px; align-items:start;}
+  .book h2{font-size:clamp(22px,3vw,30px); font-weight:700; margin-bottom:16px;}
+  .book p{color:var(--ink-soft); font-size:17px; line-height:1.7; margin-bottom:24px; max-width:480px;}
+  .steps{list-style:none;}
+  .steps li{display:flex; gap:14px; font-size:16px; margin-bottom:12px; align-items:baseline;}
+  .steps li span{font-family:var(--mono); font-weight:700; color:var(--warm); font-size:14px;}
+  .actions{display:flex; gap:14px; flex-wrap:wrap; align-content:flex-start;}
+  .contact-item{display:flex; flex-direction:column; align-items:center; gap:6px; width:72px;}
+  .contact-item .label{font-size:12px; color:var(--ink-soft); font-family:var(--sans); white-space:normal; text-align:center; line-height:1.25;}
+  .actions a{
+    width:64px; height:64px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    color:#fff;
+  }
+  .actions a svg{width:32px; height:32px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round;}
+  .icon-line{background:#06C755;}
+  .icon-whatsapp{background:#25D366;}
+  .icon-wechat{background:#07C160;}
+  .icon-email{background:#5c5b56;}
+
+  footer{border-top:1px solid var(--line); padding:28px 0; background:var(--page);}
+  .foot-bottom{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:13px; color:var(--ink-soft);}
+
+  .modal-overlay{position:fixed; inset:0; background:rgba(36,36,34,0.75); display:none; align-items:center; justify-content:center; z-index:100; padding:20px;}
+  .modal-overlay.open{display:flex;}
+  .modal-card{background:var(--card); border-radius:16px; padding:28px; max-width:320px; width:100%; text-align:center; position:relative;}
+  .modal-card img{width:100%; border-radius:8px; margin-bottom:14px;}
+  .modal-close{position:absolute; top:10px; right:14px; background:none; border:none; font-size:22px; cursor:pointer; color:var(--ink-soft);}
+  .wechat-id-row{
+    margin-top:14px; display:flex; align-items:center; justify-content:center; gap:10px;
+    background:var(--page); border:1px solid var(--line); border-radius:8px; padding:10px 14px;
+    font-size:14px; color:var(--ink-soft);
+  }
+  .wechat-id-row strong{color:var(--ink); font-family:var(--mono);}
+  .copy-btn{
+    font-family:var(--mono); font-size:12px; background:var(--warm); color:#3d2e05;
+    border:none; border-radius:999px; padding:5px 14px; cursor:pointer; font-weight:600;
+  }
+
+  @media (max-width:820px){
+    .navlinks{display:none;}
+    .hero{height:64vh;}
+    .facts .wrap{display:grid; grid-template-columns:1fr 1fr; gap:0;}
+    .fact{min-width:0; padding:16px 14px; border-left:1px solid var(--line); border-top:1px solid var(--line);}
+    .fact:nth-child(odd){border-left:none; padding-left:2px;}
+    .fact:nth-child(1), .fact:nth-child(2){border-top:none;}
+    .fact .k{font-size:12px;}
+    .fact .v{font-size:18px;}
+    .fact .v small{font-size:14px;}
+    .duo{grid-template-columns:1fr;}
+    .duo.trio{grid-template-columns:1fr;}
+    .duo-item .eyebrow{font-size:24px;}
+    .duo-item p.desc{font-size:17px; line-height:1.65;}
+    .duo-item .why p{font-size:16px;}
+    .tiers{grid-template-columns:1fr; max-width:none;}
+    .tier .duration{font-size:28px;}
+    .tier .duration-row{gap:8px 12px;}
+    .tier .tier-name{font-size:14px;}
+    .tier p.desc{font-size:18px; line-height:1.55;}
+    .tier .includes-line{font-size:17px;}
+    .tier .price{font-size:30px;}
+    .tier .price small{font-size:17px;}
+    .tier .extra{font-size:17px;}
+    .price-row{padding:14px 16px;}
+    .price-row-label{font-size:15px;}
+    .price-row-amount{font-size:24px;}
+    .price-row.primary .price-row-amount{font-size:28px;}
+    .price-note{font-size:15px;}
+    .addons{grid-template-columns:1fr;}
+    .addon h4{font-size:22px;}
+    .addon p{font-size:17px; line-height:1.65;}
+    .gtk .grid{grid-template-columns:1fr; gap:28px;}
+    .incl span{font-size:17px;}
+    .notincl li{font-size:17px;}
+    .gallery .grid{grid-template-columns:repeat(3,1fr);}
+    .closing-section p{font-size:18px; line-height:1.6;}
+    .book .grid{grid-template-columns:1fr; gap:32px;}
+    .book p{font-size:18px;}
+    .steps li{font-size:17px;}
+    .actions a{width:56px; height:56px;}
+    .actions a svg{width:28px; height:28px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="../index.html" class="logo">月阿弥 <span>Amazing Kyoto</span></a>
+    <div class="navlinks">
+      <a href="../index.html#tours">探索行程</a>
+      <a href="../index.html#contact">聯絡我們</a>
+    </div>
+    <div class="langswitch">
+      <a href="../../en/tours/kobe-arima.html">EN</a>
+      <a href="../../zh-cn/tours/kobe-arima.html">简</a>
+      <a href="../tours/kobe-arima.html" class="active">繁</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="crumb">私人嚮導・專屬體驗</div>
+    <h1>神戶山海・有馬溫泉</h1>
+    <div class="subtitle">港灣 × 六甲山 × 溫泉</div>
+  </div>
+</section>
+
+<section class="facts">
+  <div class="wrap">
+    <div class="fact"><div class="k">時長</div><div class="v">10小時</div></div>
+    <div class="fact"><div class="k">價格</div><div class="v">JP¥60,000起 <small>/ 私人包團</small></div></div>
+    <div class="fact"><div class="k">人數</div><div class="v">2–6 <small>位</small></div></div>
+    <div class="fact"><div class="k">接送</div><div class="v">京都市內飯店</div></div>
+  </div>
+</section>
+
+<section class="lede">
+  <div class="wrap">
+    <div class="tagline">從神戶的港灣與洋氣街區，到六甲山的開闊景色，最後在有馬溫泉慢下來。</div>
+    <p class="main">離開京都，走進神戶。這一天，不只是去泡溫泉，而是從海邊城市一路上山，看看神戶為什麼會有這樣獨特的氣質，再把一天最後的一段時間，留給山裡的有馬溫泉。</p>
+  </div>
+</section>
+
+<section class="duo-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>一座城市，三種風景</h2>
+    </div>
+    <div class="duo trio">
+
+      <div class="duo-item">
+        <div class="img" style="background-image:url('../images/tours/kobe-arima-harbor.jpg');"></div>
+        <div class="body">
+          <div class="eyebrow">神戶港區與市街</div>
+          <h3>從海邊認識神戶</h3>
+          <p class="desc">從港灣與市街開始，感受神戶開放、洋氣又輕鬆的一面。港口、現代街區，以及開港以來留下的國際城市氣質，讓這裡和京都、大阪都有很不一樣的感覺。</p>
+          <div class="why">
+            <div class="label">為什麼值得去？</div>
+            <p>因為神戶最迷人的地方，不只是一個景點，而是整座城市背山面海的從容與開闊。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="duo-item">
+        <div class="img" style="background-image:url('../images/tours/kobe-arima-mountain.jpg');"></div>
+        <div class="body">
+          <div class="eyebrow">六甲山</div>
+          <h3>從山上看見神戶</h3>
+          <p class="desc">驅車上山，從高處俯瞰神戶市區、大阪灣與周邊景色。實際停留的觀景點，可以依照天氣、季節和當天節奏彈性調整。</p>
+          <div class="why">
+            <div class="label">為什麼值得去？</div>
+            <p>從山上往下看，最容易理解神戶為什麼會有這樣獨特的山海氣質。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="duo-item">
+        <div class="img" style="background-image:url('../images/tours/kobe-arima-onsen.jpg');"></div>
+        <div class="body">
+          <div class="eyebrow">有馬溫泉</div>
+          <h3>把一天留在溫泉裡收尾</h3>
+          <p class="desc">最後來到有馬溫泉，在古老溫泉街散步，認識這裡獨特的泉質，也可以泡足湯，或留一些時間享受日歸溫泉。</p>
+          <div class="why">
+            <div class="label">為什麼值得去？</div>
+            <p>山裡小鎮、老街與溫泉，本身就是一種很日本的旅行節奏。</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="closing-section">
+  <div class="wrap">
+    <div class="box">
+      <h3>屬於你們的一天</h3>
+      <p>從<strong>京都市內飯店或住宿地點接客</strong>開始，以私人車輛往返各個目的地。</p>
+      <p>這不是一張必須逐項打卡的固定行程表。神戶市區的停留方式、六甲山的觀景點，以及在有馬溫泉停留多久，都可以依照你們的興趣、天氣與當天節奏彈性調整。</p>
+    </div>
+  </div>
+</section>
+
+<section class="tiers-section" id="choose">
+  <div class="wrap">
+    <div class="tiers">
+
+      <div class="tier">
+        <div class="duration-row"><span class="duration">10小時</span><span class="tier-name">完整體驗</span></div>
+        <div class="includes-line">神戶港區與市街 + 六甲山 + 有馬溫泉</div>
+        <p class="desc">從海邊城市一路進入山中，在一天之內體驗神戶的城市、山海與溫泉。</p>
+        <div class="price-table">
+          <div class="price-row primary">
+            <span class="price-row-label">2–4位</span>
+            <span class="price-row-amount">JP¥60,000 <small>/ 私人包團</small></span>
+          </div>
+          <div class="price-row">
+            <span class="price-row-label">5–6位</span>
+            <span class="price-row-amount">+JP¥2,500 <small>/ 人</small></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="addons-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>讓這一天更適合你</h2>
+    </div>
+    <div class="addons">
+
+      <div class="addon">
+        <div class="cat">港灣與市街</div>
+        <h4>感受神戶的洋氣</h4>
+        <p>在港區、舊居留地或市區多停留一些時間，感受這座城市的節奏。</p>
+      </div>
+
+      <div class="addon">
+        <div class="cat">六甲山觀景</div>
+        <h4>從高處看山海</h4>
+        <p>依照天氣與季節，選擇當天最合適的觀景點。</p>
+      </div>
+
+      <div class="addon">
+        <div class="cat">有馬溫泉</div>
+        <h4>慢下來</h4>
+        <p>可以只是逛溫泉街、泡足湯，也可以預留更多時間體驗日歸溫泉。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="gtk">
+  <div class="wrap grid">
+    <div>
+      <h3>費用包含</h3>
+      <div class="incl">
+        <span>全程私人中文導覽</span>
+        <span>私人車輛往返各目的地</span>
+      </div>
+    </div>
+    <div>
+      <h3>費用不含</h3>
+      <ul class="notincl">
+        <li>午餐及其他餐飲</li>
+        <li>自選溫泉入浴費用</li>
+        <li>個人購物及消費</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="wrap">
+    <h3>旅途片刻</h3>
+    <div class="grid">
+      <div style="background-image:url('../images/tours/kobe-arima-g1-building.jpg');"></div>
+      <div style="background-image:url('../images/tours/kobe-arima-g2-shrine.jpg');"></div>
+      <div style="background-image:url('../images/tours/kobe-arima-g3-ropeway.jpg');"></div>
+      <div style="background-image:url('../images/tours/kobe-arima-g4-bridge.jpg');"></div>
+      <div style="background-image:url('../images/tours/kobe-arima-g5-lantern.jpg');"></div>
+      <div style="background-image:url('../images/tours/kobe-arima-g6-shop.jpg');"></div>
+      <div style="background-image:url('../images/tours/kobe-arima-g7-porttower.jpg');"></div>
+      <div style="background-image:url('../images/tours/kobe-arima-g8-footbath.jpg');"></div>
+      <div style="background-image:url('../images/tours/kobe-arima-g9-maple-statue.jpg');"></div>
+      <div style="background-image:url('../images/tours/kobe-arima-g10-herbgarden.jpg');"></div>
+      <div style="background-image:url('../images/tours/kobe-arima-g11-cafe-roof.jpg');"></div>
+      <div style="background-image:url('../images/tours/kobe-arima-g12-cafe-food.jpg');"></div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="wrap grid">
+    <div>
+      <h2>聯絡預約</h2>
+      <p>此處資訊僅供參考——每一筆預約都由我們親自確認。私信告訴我們你想要的日期與方案，我們會在24小時內回覆，你可透過電子支付安全付款。</p>
+      <ul class="steps">
+        <li><span>01</span> 私信告訴我們你希望的日期與方案</li>
+        <li><span>02</span> 我們在24小時內確認檔期</li>
+        <li><span>03</span> 透過電子支付完成付款</li>
+      </ul>
+    </div>
+    <div class="actions">
+      <div class="contact-item">
+        <a class="icon-line" href="https://line.me/ti/p/md24dAW9Ax" target="_blank" rel="noopener" aria-label="LINE">
+          <svg viewBox="0 0 24 24"><path d="M4 11.5C4 7.4 7.8 4 12.5 4S21 7.4 21 11.5c0 3.7-3.3 6.8-7.7 7.4-.3.05-.7.3-.8.7l-.4 1.5c-.05.3-.3.4-.5.3-1.4-.6-2.2-1-3.5-1.9C5 18.3 4 15.1 4 11.5Z"/><path d="M8 10v3M11 10v3M14 10v2.2c0 .5.7.7.9.3l1.6-2.5"/></svg>
+        </a>
+        <span class="label">LINE</span>
+      </div>
+      <div class="contact-item">
+        <a class="icon-whatsapp" href="https://wa.me/qr/3MGQVMOFTBGHD1" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.8L4 20.5l4.3-1.1A8.5 8.5 0 1 0 12 3.5Z"/><path d="M8.7 8.6c.2-.5.5-.5.7-.5h.5c.2 0 .4 0 .5.4.2.5.6 1.5.6 1.6.1.1.1.3 0 .4-.1.2-.2.3-.3.4-.1.2-.3.3-.1.6.2.4.9 1.4 1.9 2.2 1.3 1 2.1 1.3 2.4 1.1.2-.1.4-.4.6-.6.2-.2.4-.3.6-.2.2.1 1.4.7 1.6.8.2.1.4.2.4.3.1.4-.1 1-.4 1.4-.3.4-1.1.8-1.7.8-1.1 0-2.7-.5-4.7-2.3-2.3-2.1-3-4-3.1-4.4-.1-.4-.5-1.5.5-2.9Z"/></svg>
+        </a>
+        <span class="label">WhatsApp</span>
+      </div>
+      <div class="contact-item">
+        <a class="icon-wechat" href="#" onclick="document.getElementById('wechat-modal').classList.add('open');return false;" aria-label="WeChat">
+          <svg viewBox="0 0 24 24"><path d="M9 4.2C5.4 4.2 2.8 6.6 2.8 9.5c0 1.7 1 3.2 2.5 4.1l-.6 1.9 2.1-1.1c.7.2 1.5.3 2.2.3h.3c-.15-.5-.2-.9-.2-1.4 0-3 2.8-5.4 6.3-5.4h.3C15.1 5.9 12.3 4.2 9 4.2Z"/><path d="M15.6 9.9c-3 0-5.4 2.2-5.4 4.8s2.4 4.8 5.4 4.8c.6 0 1.2-.1 1.8-.3l1.9 1-.5-1.8c1.2-.9 1.9-2.2 1.9-3.7 0-2.6-2.4-4.8-5.1-4.8Z"/><circle cx="6.8" cy="8.1" r="0.55" fill="#fff" stroke="none"/><circle cx="10.5" cy="8.1" r="0.55" fill="#fff" stroke="none"/><circle cx="13.6" cy="13.9" r="0.55" fill="#fff" stroke="none"/><circle cx="17.4" cy="13.9" r="0.55" fill="#fff" stroke="none"/></svg>
+        </a>
+        <span class="label">WeChat</span>
+      </div>
+      <div class="contact-item">
+        <a class="icon-email" href="mailto:yuami5128@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24"><rect x="3.5" y="6" width="17" height="12" rx="1.5"/><path d="M4.5 7.5L12 13l7.5-5.5"/></svg>
+        </a>
+        <span class="label">Email</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-bottom">
+    <span>© 2026 Amazing Kyoto / 株式会社月阿弥</span>
+    <span><a href="../index.html">← 返回首頁</a></span>
+  </div>
+</footer>
+
+<div id="wechat-modal" class="modal-overlay" onclick="this.classList.remove('open')">
+  <div class="modal-card" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="document.getElementById('wechat-modal').classList.remove('open')">&times;</button>
+    <img src="../images/tours/wechat-qr.jpg" alt="WeChat QR">
+    <p>掃碼加入微信</p>
+    <div class="wechat-id-row">
+      <span>ID: <strong>wangyue8904</strong></span>
+      <button class="copy-btn" onclick="navigator.clipboard.writeText('wangyue8904');this.textContent='Copied!';setTimeout(()=&gt;this.textContent='Copy',1500);">Copy</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
