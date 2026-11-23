@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="山隐京都·海遇和歌 6日 隐藏攻略 · Yuami 月阿弥">
+<title>山隐京都·海遇和歌 隐藏攻略</title>
+<style>
+/* VOICE: warm, curious, a friend who knows the backstory; light on facts, heavy on "oh, really?"
+   IDEA: a pilgrim's travel booklet — each day a stamped page, tasks you tick off like temple seals
+   PICTURE: a clear daytime sky with clouds over Kumano ridges, the giant torii, a bright sun (the crow's sun), sea below
+   COLOUR and TYPE: sky blue field, maple red accent, crow-sun gold; Noto Serif SC titles, Noto Sans SC body
+   LAYOUT: hero poster → sticky day tabs → day page: one-liner, route, story cards, tasks, season box, word */
+:root{color-scheme:light dark;
+--bg:light-dark(#ffffff,#0d1822);--ink:light-dark(#1d2421,#ece8df);--mute:light-dark(#5d6661,#a9b1ab);
+--cedar:light-dark(#ffffff,#10202c);--sky:light-dark(#1f6fa8,#7cc0ec);--navy:light-dark(#16324a,#e8f1f8);--cedar2:light-dark(#eaf5fc,#16304a);--maple:light-dark(#c4432a,#e2694f);--gold:#c99a3c;
+--line:light-dark(#d9e6ef,#24405a);--card:light-dark(#ffffff,#122434)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 "Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;overflow-x:clip}
+h1,h2,h3,.serif{font-family:"Noto Serif SC","Songti SC","STSong","SimSun",serif;text-wrap:balance}
+.wrap{max-width:760px;margin:0 auto;padding:0 max(5vw,18px)}
+/* hero */
+.hero{background:var(--bg);color:var(--navy);position:relative;overflow:hidden}
+.hero .fig{position:relative;height:min(52vh,360px)}
+.hero svg{position:absolute;inset:0;width:100%;height:100%}
+.hero .txt{padding-top:22px;padding-bottom:30px}
+.hero h1{font-size:clamp(30px,7vw,46px);line-height:1.1;margin:0 0 10px;font-weight:900;letter-spacing:.02em}
+.hero p{margin:0;color:var(--mute);font-size:16px}
+.hero .by{margin-top:14px;font-size:14px;color:var(--maple);font-weight:500}
+/* tabs */
+.tabs{position:sticky;top:0;z-index:5;background:var(--bg);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tabs .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:8px;padding-bottom:8px;scrollbar-width:none}
+.tabs a{flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:64px;min-height:48px;padding:4px 10px;border-radius:10px;color:var(--mute);text-decoration:none;font-size:14px;line-height:1.25}
+.tabs a b{font-family:"Noto Serif SC","Songti SC","STSong","SimSun",serif;font-size:16px;color:var(--navy)}
+.tabs a[aria-current=true] b{color:#fff}
+.tabs a small{font-size:13px}
+.tabs a[aria-current=true]{background:var(--maple);color:#fff}
+.tabs a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+/* day */
+.day{padding:28px 0 56px}
+.kicker{color:var(--maple);font-weight:700;font-size:14px}
+.day h2{color:var(--navy);font-size:clamp(28px,6vw,38px);line-height:1.15;margin:4px 0 16px}
+.quote{font-family:"Noto Serif SC","Songti SC","STSong","SimSun",serif;font-size:20px;line-height:1.6;margin:0 0 26px;padding:18px 20px;background:var(--cedar2);border-radius:14px}
+.quote::before{content:"今日一句话";display:block;font:500 13px "Noto Sans SC",sans-serif;color:var(--mute);margin-bottom:4px}
+h3{font-size:22px;margin:34px 0 12px;line-height:1.3}
+h3 small{font:400 14px "Noto Sans SC",sans-serif;color:var(--mute);margin-left:6px}
+/* route */
+.route{list-style:none;margin:0;padding:0;position:relative}
+.route::before{content:"";position:absolute;left:11px;top:10px;bottom:10px;border-left:2px dotted var(--line)}
+.route li{position:relative;padding:4px 0 10px 36px}
+.route li::before{content:"";position:absolute;left:4px;top:11px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--maple)}
+.route li.walk::before{background:var(--maple)}
+.route b{font-weight:700}.route span{color:var(--mute);font-size:14px;margin-left:6px}
+.note{font-size:14px;color:var(--mute);margin:6px 0 0}
+/* story cards */
+.cards{display:grid;gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px}
+.card h4{margin:0 0 2px;font:700 19px "Noto Serif SC","Songti SC","STSong","SimSun",serif}
+.card .hook{color:var(--maple);font-weight:500;margin:0 0 8px}
+.card p{margin:0 0 8px}
+.card .fact{font-size:14px;color:var(--mute);border-top:1px dashed var(--line);padding-top:8px;margin:10px 0 0}
+.card .fact::before{content:"冷知识 ";color:var(--gold);font-weight:700}
+.halls{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr);gap:8px;margin:12px 0 8px;align-items:end}
+.bldg{display:flex;flex-direction:column}
+.roof{height:16px;background:#4a3a2e;clip-path:polygon(6% 0,94% 0,100% 100%,0 100%);margin:0 -3px}
+.rooms{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:4px;border:1px solid var(--line);border-top:0;background:var(--cedar2);padding:6px 4px;border-radius:0 0 8px 8px}
+.bldg.main .rooms{padding-block:12px}
+.hall{text-align:center;font-size:13px;line-height:1.45}
+.hall+.hall{border-left:1px dashed var(--line)}
+.hall b{display:block;font:700 15px "Noto Serif SC","Songti SC","STSong","SimSun",serif;color:var(--navy)}
+.hall i{font-style:normal;display:block;color:var(--maple);font-weight:700}
+.hall em{font-style:normal;color:var(--sky)}
+.blab{font-size:12px;color:var(--mute);text-align:center;margin-top:4px}
+.cap{font-size:13px;color:var(--mute);margin:0 0 8px}
+/* tasks */
+.tasks{display:grid;gap:10px}
+.task{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:14px;border:1px solid var(--line);cursor:pointer;min-height:56px}
+.task input{appearance:none;flex:none;width:28px;height:28px;margin:0;border-radius:50%;border:2px solid var(--maple);display:grid;place-items:center;cursor:pointer}
+.task input:checked{background:var(--maple)}
+.task input:checked::after{content:"✓";color:#fff;font-size:16px;font-weight:700}
+.task input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.task b{display:block}.task span{font-size:14px;color:var(--mute)}
+.task:has(input:checked){background:var(--cedar2)}
+.total{margin:14px 0 0;padding:16px 18px;border-radius:14px;background:var(--maple);color:#fff;font:500 18px "Noto Serif SC","Songti SC","STSong","SimSun",serif}.total b{font-size:26px}
+.score{font-size:14px;color:var(--mute);margin:10px 0 0}
+/* season */
+.season{background:var(--cedar2);color:var(--ink);border-radius:18px;padding:20px;margin-top:34px}
+.season h3{margin:0 0 4px;color:var(--navy)}
+.season .tag{display:inline-block;font-size:13px;background:var(--gold);color:#1d2421;border-radius:999px;padding:1px 10px;margin-bottom:12px}
+.season dl{margin:0;display:grid;gap:12px}
+.season dt{font-weight:700;color:var(--sky)}.season dd{margin:0}
+/* word */
+.word{margin-top:34px;border:2px solid var(--maple);border-radius:18px;padding:20px;text-align:center}
+.word .jp{font:900 34px "Noto Serif SC","Songti SC","STSong","SimSun",serif;line-height:1.2;margin:6px 0 2px}
+.word .ro{color:var(--maple);font-weight:500}
+.word p{margin:10px 0 0;text-align:left}
+.soon{padding:60px 0;text-align:center;color:var(--mute)}
+.soon h2{color:var(--ink)}
+footer{border-top:1px solid var(--line);padding:22px 0 40px;font-size:14px;color:var(--mute);text-align:center}
+@media(prefers-reduced-motion:no-preference){.day{animation:in .4s ease both}@keyframes in{from{opacity:0;transform:translateY(8px)}}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="fig" aria-hidden="true">
+    <svg viewBox="0 0 400 260" preserveAspectRatio="xMidYMax slice">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5fb0e8"/><stop offset=".7" stop-color="#bfe3f7"/><stop offset="1" stop-color="#e8f6fc"/></linearGradient>
+        <radialGradient id="sun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fffbe8"/><stop offset=".55" stop-color="#ffe9a6"/><stop offset="1" stop-color="#ffe9a6" stop-opacity="0"/></radialGradient>
+        <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a9bd0"/><stop offset="1" stop-color="#1f6fa8"/></linearGradient>
+        <g id="cloud"><ellipse cx="0" cy="0" rx="26" ry="11"/><ellipse cx="-16" cy="4" rx="18" ry="9"/><ellipse cx="18" cy="5" rx="20" ry="8"/><ellipse cx="2" cy="-7" rx="14" ry="10"/></g>
+      </defs>
+      <rect width="400" height="260" fill="url(#sky)"/>
+      <circle cx="300" cy="62" r="52" fill="url(#sun)"/>
+      <circle cx="300" cy="62" r="20" fill="#fff8d6"/>
+      <g fill="#fff"><use href="#cloud" x="70" y="48" opacity=".95"/><use href="#cloud" x="200" y="34" transform="scale(1)" opacity=".85"/><use href="#cloud" x="355" y="110" opacity=".8"/></g>
+      <path d="M0 150 L40 120 L78 136 L120 98 L160 128 L205 104 L250 132 L300 110 L345 134 L400 114 V260 H0Z" fill="#9cc7c0" opacity=".8"/>
+      <path d="M0 176 L50 142 L95 166 L140 132 L188 162 L232 140 L280 168 L330 146 L400 170 V260 H0Z" fill="#5f9e86"/>
+      <path d="M0 200 L60 174 L120 194 L170 178 L240 198 L300 182 L360 196 L400 188 V260 H0Z" fill="#3f7f66"/>
+      <g transform="translate(150 118)" fill="#c4432a">
+        <path d="M-8 8 Q50 -4 108 8 L110 16 Q50 6 -10 16Z" fill="#2b2b2b"/>
+        <rect x="-2" y="18" width="104" height="7"/>
+        <rect x="14" y="10" width="9" height="86"/><rect x="77" y="10" width="9" height="86"/>
+        <rect x="14" y="10" width="3" height="86" fill="#e2694f"/><rect x="77" y="10" width="3" height="86" fill="#e2694f"/>
+        <rect x="46" y="16" width="8" height="9" fill="#c99a3c"/>
+      </g>
+      <rect y="212" width="400" height="48" fill="url(#sea)"/>
+      <g fill="none" stroke="#ffffff" stroke-opacity=".7" stroke-width="1.5">
+        <path d="M0 224 q12 -7 24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0"/>
+        <path d="M-12 238 q12 -7 24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0" stroke-opacity=".45"/>
+        <path d="M0 252 q12 -7 24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0" stroke-opacity=".25"/>
+      </g>
+    </svg>
+  </div>
+  <div class="wrap txt">
+    <h1>山隐京都·海遇和歌<br>隐藏攻略</h1>
+    <p>藏在景点背后的故事、当季才有的风景，和每天几个好玩的小任务，留给好奇的您。</p>
+    <div class="by">Yuami 月阿弥 · Amazing Kyoto 为您准备</div>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="按天浏览"><div class="wrap" id="tabs"></div></nav>
+<main class="wrap" id="main"></main>
+<footer>行程可根据当天天气、时间和心情灵活调整。<br>祝您旅途愉快 · Yuami 月阿弥</footer>
+
+<script>
+{
+const days=[
+ {id:"day1",d:"11/29",w:"周日",t:"落地关西，一路向南泡温泉",
+  quote:"今天不赶景点，只做一件事：把一路的疲惫，交给太平洋边的温泉。",
+  route:[["关西国际机场","抵达日本"],["沿纪伊半岛西海岸南下","车程约 1 个半小时"],["入住温泉酒店","晚餐：酒店自助"]],
+  stories:[
+   {n:"关西国际机场",h:"您降落的地方，原本是一片海",p:["关西机场整座建在大阪湾里的人工岛上，1994 年开始启用。从飞机上往下看，四周全是海，跑道就像漂在水面上。"],f:"因为建在海上，飞机起降不会吵到居民，它成了日本第一座 24 小时运行的国际机场。"},
+   {n:"和歌山",h:"「木之国」，森林的故乡",p:["和歌山古称「纪伊国」，有一种说法认为「纪」就是「木」，意思是「树木繁茂之国」。接下来几天您会走进熊野的杉林，就会明白这个名字一点都不夸张。","到了江户时代，这里是德川家族的「御三家」之一，统治日本 260 多年的德川幕府，第八代将军德川吉宗就出身于此。"],f:"和歌山是日本的「水果王国」，橘子和柿子的产量都是全国第一，梅子也是。11、12 月正是橘子最甜的时候，路上看到当地的橘子，一定要尝尝。"},
+   {n:"白滨温泉",h:"天皇也来泡过的千年古汤",p:["白滨温泉和有马温泉、道后温泉并称「日本三古汤」，有一千三百多年的历史。古代的天皇和贵族就专程来这里疗养，后来去熊野朝圣的人也会在这一带歇脚。","今晚入住温泉酒店，泡完温泉早点休息，明天开始就要往「山」里走了。"],f:"日本人泡温泉讲究「先洗后泡」，泡汤池是大家一起享受的，不是洗澡的地方。"},
+   {n:"南部町",h:"日本最有名的梅子，就产自这里",p:["南部町是日本最大的梅子产地，名牌梅子「南高梅」就是在这里培育出来的。「南高」两个字，来自当地的南部高中，当年就是由这所高中的老师参与选出了最好的品种。"],f:"每年二月，这里的梅林会开满白色梅花，是日本最早报春的地方之一。"}
+  ],
+  tasks:[["按日本的方式泡一次温泉","先在洗身处冲洗干净，再进汤池；毛巾不要放进池子里，可以叠好放在头上"],["穿上酒店的浴衣","记住口诀：左压右，也就是左边的衣襟盖在右边上面"],["尝一颗南高梅干","挑战一下它有多酸，酸完记得喝口茶"],["到酒店后抬头看看星空","海边的冬夜空气清透，天气好时能看到满天星星"]],
+  season:{tag:"秋冬版 · 11月下旬～2月",items:[["看","冬天的太平洋空气清透，路上如果赶上傍晚，常常能看到橙红色的晚霞。"],["泡","一年里最适合泡温泉的季节就是现在，外面越冷，泡在温泉里越舒服。"],["穿","海边风大，下机后建议备一件外套。"]]},
+  word:{jp:"いただきます",ro:"i-ta-da-ki-ma-su",p:"日本人开饭前一定会说的一句话，意思是「我开动了」，也有感谢食物和做饭的人的意思。今晚吃饭前，不妨一起说一次。"}
+ },
+ {id:"day2",d:"11/30",w:"周一",t:"从海边断崖，走进千年古道",
+  quote:"上午看太平洋把石头雕成艺术品，下午走进一千年前天皇和百姓都向往的「重生之地」。",
+  route:[["三段壁","海边断崖"],["千叠敷","海浪磨出的「榻榻米」"],["圆月岛","白滨的地标小岛"],["Toretore 市场","海鲜午餐"],["熊野古道","可根据体力选择走一小段，或直接前往本宫大社",1],["熊野本宫大社","158 级石阶上的总本社"],["大斋原","本宫大社的原址，日本最大的鸟居"],["入住串本","本州最南端的小镇"]],
+  stories:[
+   {n:"三段壁",h:"名字其实是「听错了」",p:["这里本来叫「见壇」，是渔民站在崖顶看鱼群、看船只的瞭望台。日语里「见壇」和「三段」发音相近，叫着叫着就成了今天的名字。","断崖高约 50 米，崖下有海蚀洞。传说八百多年前的源平合战时，「熊野水军」就把船藏在这里，后来还帮源氏打赢了关键的海战。"],f:"眼前这片海是「黑潮」流经的地方。这股全球第二大的暖流从赤道一路北上，到纪伊半岛拐了个弯，所以这一带的海鲜特别好，中午的市场就能尝到。"},
+   {n:"千叠敷",h:"一块被大海「打磨」了几百万年的石板",p:["脚下这片砂岩原本是海底，地壳把它慢慢推上来，再被海浪一层层冲刷，就成了像铺了一千张榻榻米的样子。「千叠敷」就是「一千张榻榻米」的意思。"],f:"砂岩很软，所以这里每天都在一点点「变样」。您今天看到的，和十年后的人看到的不会完全一样。"},
+   {n:"圆月岛",h:"一年只有两次「月亮吞太阳」",p:["小岛正式的名字叫「高岛」，因为中间有个直径约 9 米的圆洞，大家都叫它圆月岛。","每年春分、秋分前后，夕阳会刚好落进这个洞里。今天虽然碰不上，就当给自己留个下次再来的理由。"],f:"因为岛体风化严重，现在已经不允许靠近或登岛，远远欣赏就好。"},
+   {n:"熊野古道",h:"世界上只有两条朝圣之路是世界遗产",p:["一条是西班牙的圣地亚哥朝圣之路，另一条就是熊野古道。古道的终点叫「熊野三山」，但它不是三座山，而是三座神社：本宫大社、速玉大社和那智大社。","一千年前的平安时代，熊野参拜是天皇和贵族的专属，他们从京都出发，在深山里走上好几个星期才能到这里，光是后白河上皇一个人就来了 34 次。后来武士和平民也慢慢加入，到了江户时代，各地百姓从四面八方赶来，人多得像蚂蚁排队，被称作「蚁之熊野诣」。","据说走完三山，前世、今生、来世都能得到安宁，所以熊野又被称为「重生之地」。"],f:"体力允许的话，可以走一小段古道，踩一踩千年前朝圣者走过的石阶；不走也完全没关系，可以直接前往本宫大社。"},
+   {n:"熊野本宫大社",h:"神殿里住着「一家四口」",p:["爬完 158 级石阶，穿过神门走进神社，最里面并排着四座神殿。有意思的是，里面供奉的其实是一家人：左边最大的那一栋里并排着第一殿和第二殿，供奉的是日本神话里创造国土的夫妻神伊邪那美、伊邪那岐，也就是这家的「父母」；中间的第三殿是主神家津美御子大神（素戋呜尊），右边第四殿是他的姐姐天照大神。"],
+    halls:[{l:"同一栋建筑（相殿）",r:[["第一殿","夫须美大神","千手观音","③"],["第二殿","速玉大神","药师如来","②"]]},{l:"证诚殿",m:1,r:[["第三殿","家津美御子大神","阿弥陀如来","①"]]},{l:"若宫",r:[["第四殿","天照大神","十一面观音","④"]]}],
+    p2:["古时候的日本人相信，神和佛本是一体，神是佛来到日本时换的「样子」，这叫「神佛习合」。所以每位神都有一位对应的佛，神殿前的立牌上写着。主神对应的是阿弥陀如来，也就是西方极乐世界的佛，难怪大家相信来本宫能「救济来世」。","参拜也有讲究，要按「三殿 → 二殿 → 一殿 → 四殿」的顺序，先拜主神，再拜父母，最后拜姐姐。"],
+    f:"您可能会好奇：为什么神社要建在 158 级台阶上面？答案就在下一站大斋原。"},
+   {n:"八咫乌",h:"三只脚的乌鸦，是「天、地、人」",p:["在本宫大社您会到处看到一只三条腿的乌鸦，叫八咫乌。神话里，日本第一位天皇神武天皇在熊野的深山里迷了路，就是它飞来带路，所以它被当作「引路之神」。今天日本国家足球队的队徽上就是它。","它为什么有三只脚？有一种说法是，三只脚分别代表「天、地、人」，也就是神明、自然和人本来是一家，同样被太阳照耀着。"],f:"它和中国古代神话里住在太阳里的「三足金乌」其实是亲戚，从大陆传到日本，成了熊野的神鸟。"},
+   {n:"大斋原",h:"本宫大社「搬家」的故事",p:["大斋原才是本宫大社最早的家。它在三条河交汇处的沙洲上，规模是现在的好几倍，以前的朝圣者要涉水过河、打湿草鞋才能进入神域，过河本身就是一次「净身」。","1889 年的一场大洪水冲走了大部分社殿。幸存的几座神殿被搬到附近地势更高的山坡上，就是为了不再被水淹，所以今天参拜才要爬那 158 级台阶。现在原址上立着高 33.9 米、宽 42 米的日本最大鸟居，守护着这片最早的圣地。"],f:"鸟居正中间也有八咫乌的金色神纹，仰头找找看。"}
+  ],
+  tasks:[["在圆月岛拍一张「手指托月」照","把小岛的圆洞放在指尖上，就是今天的打卡照"],["数一数本宫大社的石阶","官方答案是 158 级，看看您数得对不对"],["按「三 → 二 → 一 → 四」的顺序参拜四殿","先拜主神，再拜父母，最后拜姐姐，并在每座神殿前的立牌上找到它对应的佛"],["找到社务所前的黑色八咫乌邮筒","可以买一张明信片，从「重生之地」寄给远方的人（寄往中国的邮资请在社务所确认）"],["在大斋原找到鸟居上的八咫乌","找到了吗？它就在您头顶正中间"],["在大斋原的手水处找到一个汉字","答案就是今天的日语词，往下看看是哪个字"]],
+  season:{tag:"秋冬版 · 11月下旬～2月",items:[["看","熊野的杉林四季常绿，晚秋时林间夹着几抹红叶黄叶，阳光斜照进古道，是一年里最安静好看的时候。"],["吃","今晚住的串本，是近畿大学研究所所在地，2002 年世界上第一条全人工养殖的蓝鳍金枪鱼「近大金枪鱼」就在这里诞生。和歌山的南部町是日本梅子之乡，名牌「南高梅」就产自这里，买一盒梅干当伴手礼很合适。"],["穿","山里早晚凉，比海边低好几度，建议穿一件好脱的外套；石阶上有落叶和湿气，请穿防滑的鞋。"]]},
+  word:{jp:"蘇り",ro:"yo-mi-ga-e-ri",p:"日语的「重生、焕然一新」。大斋原的手水处就刻着这个「蘇」字，千百年来，人们走过漫长的古道来到这里，就是为了让身心重新出发。走完今天，您也算「蘇」了一回。"}
+ },
+ {id:"day3",d:"12/01",w:"周二",t:"那智瀑布：神就在眼前",
+  quote:"今天去见一位「没有神殿的神」，它就是日本落差最大的瀑布。",
+  route:[["大门坂","古道石阶，可根据体力选择走一段",1],["那智瀑布","日本落差最大的瀑布"],["熊野那智大社","时间和体力允许时前往"],["前往奈良","晚餐：奈良陶板烧"]],
+  stories:[
+   {n:"大门坂",h:"一座桥，隔开了人间和神域",p:["大门坂全长约 600 米，有 267 级石阶，两旁是高大的杉树，被认为是熊野古道最美的一段。入口处的两棵「夫妇杉」，已经有约 800 岁了。","坡道下方有一座红色的「振之濑桥」，古时候它是俗世和神域的分界线，哪怕是骑马来的人，过了桥也必须下马，用自己的双脚走上去。"],f:"坡道途中还有古代收「过路费」的关卡遗址，价钱比泡一次澡堂贵，比吃一碗荞麦面便宜。"},
+   {n:"那智瀑布",h:"一道光，指引神武天皇来到这里",p:["传说日本第一位天皇神武天皇从九州出发东征，坐船沿着海岸来到那智的海滩上岸。他远远望见群山之中闪着一道光，循着光找过来，发现的就是这道瀑布，于是把它当作神来祭拜，这就是那智信仰的起点。","之后，昨天在本宫见过的八咫乌出现了，带着神武天皇穿过熊野的深山，一路走到奈良，在那里建立了日本最早的都城。今晚您也会入住奈良，算是沿着神话走了一回。"],f:"那智瀑布落差 133 米，是日本落差最大的瀑布。瀑布上游还有几十条瀑布，所以它也被称为「一之泷」，第一道瀑布。"},
+   {n:"飞泷神社",h:"一位没有神殿的神",p:["瀑布前就是飞泷神社，但您找不到正殿，因为这座神社没有社殿，瀑布本身就是神。","这正是熊野信仰最初的样子：对大自然的敬畏。山、森林、瀑布，本身就是神。后来人们才在山腰建起那智大社，旁边还有一座佛寺青岸渡寺，神和佛在这里一起供奉了上千年。"],f:"网上那张红色三重塔和瀑布同框的经典照片，是在山腰的青岸渡寺拍的，要先爬 467 级石阶才到得了。今天咱们就把力气留给瀑布本身，站在瀑布下抬头看，水雾扑面而来，这才是今天最值得多停留几分钟的地方。"},
+   {n:"熊野三山",h:"前世、今生、来世，三座神社各管一段",p:["熊野三山是本宫大社、速玉大社和那智大社。有一种说法是：速玉大社洗净前世的罪，那智大社结下今生的缘，本宫大社救济来世。","所以昨天您去了「管来世」的本宫，今天来到「管今生缘分」的那智，愿您这一路都遇到好的缘分。"],f:"从熊野的深山出发，今晚就到了一千三百年前日本最早的都城奈良。"}
+  ],
+  tasks:[["在大门坂和夫妇杉合影","从两棵 800 岁的杉树中间穿过去，据说象征夫妻和睦"],["拍一张从下往上看的瀑布照","站在瀑布下方，把镜头竖起来，把 133 米的落差装进一张照片里"],["在瀑布前找到鸟居","鸟居后面没有神殿，因为您眼前的瀑布就是神"],["如果去了那智大社，找到那棵大樟树","树龄约 850 年，是那智大社的神木"]],
+  season:{tag:"秋冬版 · 11月下旬～2月",items:[["看","那智山的原始森林晚秋时红黄交错，衬着白色的瀑布格外好看；冬天水量少一些，但空气更清透。"],["吃","那智胜浦港是日本新鲜金枪鱼卸货量最多的渔港，金枪鱼是这一带的骄傲。今晚在奈良吃陶板烧，换换口味。"],["穿","今天石阶很多，请穿好走的鞋；瀑布附近有水雾，带一件防风外套。"]]},
+  word:{jp:"ご縁",ro:"go-en",p:"「缘分」。那智大社管的就是今生的缘。日本人很爱这个词，连 5 日元硬币也被当作吉祥物，因为「5 日元」的发音和「ご縁」一样。"}
+ },
+ {id:"day4",d:"12/02",w:"周三",t:"从人间极乐，走进桃花源",
+  quote:"上午看一千年前的人怎样在人间造出极乐世界，下午穿过一条隧道，走进现代版的桃花源。",
+  route:[["平等院","10 日元硬币上的凤凰堂"],["宇治抹茶体验","亲手做一碗抹茶"],["午餐","日式御膳"],["美秀美术馆","贝聿铭设计的「桃花源」"],["入住大阪","晚餐自理"]],
+  stories:[
+   {n:"平等院",h:"一场「世界末日」引发的建筑",p:["平等院原本是权臣藤原道长的别墅，1052 年他的儿子藤原赖通把它改成了寺院。","为什么是这一年？当时的人相信，佛陀去世后佛法会渐渐衰落，到了 1052 年就会进入「末法」时代，天灾不断、世道混乱。于是赖通决定，干脆在人间造一座西方极乐世界。"],f:"「平等院」这个名字，意思是佛的救济对所有人都是平等的。"},
+   {n:"凤凰堂",h:"您口袋里就有它",p:["第二年建成的阿弥陀堂，从正面看就像一只张开翅膀的凤凰，所以叫凤凰堂，屋顶两端还各站着一只金色的凤凰。它就是 10 日元硬币上的图案。","站在水池对岸看最美：建筑倒映在池中，就是当年人们想象中的极乐净土。"],f:"旧版一万日元纸币背面的凤凰，原型就是凤凰堂屋顶上的这对凤凰。"},
+   {n:"阿弥陀如来像",h:"让佛像「长成日本脸」的作品",p:["凤凰堂里坐着一尊约 2.8 米高的阿弥陀如来，出自平安时代顶级佛师定朝之手，是他唯一确定留存至今的作品。在他之前，日本佛像大多还是照着中国的样子做；从定朝开始，佛像的面容变得温和安详，真正有了日本自己的风格。","四周墙上还有 52 尊「云中供养菩萨」，乘着云朵，有的弹琴，有的跳舞，像一场天上的音乐会。"],f:"这尊佛像是用很多块木头拼起来的，叫「寄木造」，比整块木头雕刻更轻、更不容易裂。"},
+   {n:"宇治抹茶",h:"为什么宇治的抹茶特别甜？",p:["宇治是日本最有名的茶乡。做抹茶的茶树，在采摘前会被盖上遮光的棚子，晒不到太阳的茶叶苦味少、甜味多，颜色也更绿。","今天您会亲手做一碗抹茶，用茶筅快速打出细细的泡沫，自己做的那一碗最好喝。"],f:"宇治也是《源氏物语》最后十帖的舞台，被称为「宇治十帖」。"},
+   {n:"美秀美术馆",h:"贝聿铭把《桃花源记》搬进了山里",p:["设计卢浮宫玻璃金字塔的建筑师贝聿铭，以陶渊明的《桃花源记》为灵感设计了这座美术馆：先走一段林间小路，再穿过一条隧道，过一座吊桥，美术馆才出现在眼前，就像「初极狭，才通人；复行数十步，豁然开朗」。","为了保护山林，美术馆大部分建筑都藏在地下，从外面看，只露出几片像山中农舍的屋顶。"],f:"今年秋季特展是「百济寺与近江的佛教美术」，展期到 12 月 6 日，今天刚好赶上。"}
+  ],
+  tasks:[["拿出 10 日元硬币对照凤凰堂","站在水池对岸，把硬币举起来，和真的凤凰堂比一比"],["找到屋顶上的两只凤凰","它们一左一右站在屋顶两端"],["喝抹茶前把茶碗转两下","接过茶碗后，顺时针转两次，避开正面再喝，这是对主人的礼貌"],["在美秀的隧道里回头看","隧道尽头的光和吊桥，就是贝聿铭笔下的「桃花源入口」"]],
+  season:{tag:"秋冬版 · 11月下旬～2月",items:[["看","宇治川两岸和平等院的庭园正值晚秋。美秀美术馆的林间小路，春天是一整条垂枝樱隧道，现在则是安静的秋色。"],["吃","来宇治一定要尝一份抹茶甜点，抹茶冰淇淋、抹茶团子都是这里的招牌。"],["穿","美秀美术馆在山里，比城市冷一些，走隧道和吊桥时风也比较大。"]]},
+  word:{jp:"一期一会",ro:"i-chi-go i-chi-e",p:"来自日本茶道的一句话：每一次相聚都是一生中仅有的一次，所以要用心对待。就像今天您亲手做的这碗抹茶，下次再做，味道也不会完全一样。"}
+ },
+ {id:"day5",d:"12/03",w:"周四",t:"一天看尽京都的寺、苔与水",
+  quote:"上午在清水寺看京都城，中午吃一顿螃蟹，下午进山看苔庭，傍晚去找京都的水源。",
+  route:[["清水寺","13 米高的「清水舞台」"],["二年坂 · 三年坂","京都最有味道的石板坡道"],["午餐","京都蟹膳"],["三千院","大原的苔庭与小地藏"],["贵船神社","红灯笼参道与水占卜"],["返回大阪","晚餐自理"]],
+  stories:[
+   {n:"清水寺",h:"一座没用一根钉子的「悬空舞台」",p:["清水寺创建于 778 年，名字来自寺里清澈的泉水。最有名的是本堂前伸出山崖的「清水舞台」，高约 13 米，相当于四层楼，却没用一根钉子，靠 400 多年树龄的榉木柱子交错支撑。","日语里有句谚语叫「从清水舞台跳下去」，意思是「下定决心、豁出去」，可见这座舞台在日本人心里有多高。"],f:"本堂供奉的千手观音是秘佛，原则上 33 年才公开一次，下一次预计在 2033 年。"},
+   {n:"音羽瀑布",h:"三股泉水，只选一股",p:["清水寺的名字就来自这里。三股泉水据说分别保佑恋爱、学业和健康长寿。","坊间的说法是只选一股喝，太贪心三股都喝，效果就会打折扣。您会选哪一股？"],f:"排队的人多时，用长柄勺接一口就好，不要直接对着嘴喝。"},
+   {n:"二年坂 · 三年坂",h:"走路请小心，这是有讲究的",p:["三年坂又叫「产宁坂」，传说是去清水寺祈求平安生产的人走的坡道。两条坡道两旁都是保留下来的老町家，是京都最有味道的街景之一。","民间还有个传说：在三年坂摔一跤，三年都会倒霉。所以坡道上有卖葫芦的老店，据说葫芦可以「化解」霉运。"],f:"走到坡道高处回头看，常常能看到八坂塔从屋顶之间冒出来，是很经典的拍照角度。"},
+   {n:"三千院",h:"苔庭里藏着几位小地藏",p:["三千院在京都北边的山里大原，是天台宗的门迹寺院，也就是过去由皇族担任住持的寺院。","庭园「有清园」铺满厚厚的青苔，中间是往生极乐院，里面供奉着国宝阿弥陀三尊。仔细看两旁的菩萨，身体微微前倾、像要起身，表示正要去迎接往生的人。"],f:"苔庭里散落着几尊可爱的「童地藏」，是现代石雕家的作品，脸上都长着淡淡的青苔。"},
+   {n:"阿弥陀如来",h:"这几天，您已经见过祂三次了",p:["不知您有没有发现：熊野本宫主神对应的佛是阿弥陀如来，平等院凤凰堂里坐着阿弥陀如来，刚刚在三千院往生极乐院看到的还是阿弥陀如来。","祂是西方极乐世界的佛。一千年前的日本人，从天皇贵族到普通百姓，都向往死后能去极乐净土。这趟旅行，其实也是在追寻那个时代人们心中的「极乐」。"],f:"把这几天连起来看，您就会发现，这条路线背后有一条完整的信仰脉络。"},
+   {n:"贵船神社",h:"日本所有绘马，都从这里开始",p:["贵船神社在鸭川的源头，供奉的是掌管降雨的水神。古时候天下大旱，朝廷会来这里献上黑马求雨；雨下不停，就献上白马求晴。","后来活马太难献，人们改成在木板上画马，这就是今天全日本神社都有的「绘马」的起源。"],f:"平安时代的女歌人和泉式部曾在这里祈求和丈夫重归于好，后来真的如愿，所以贵船也成了求姻缘的地方。"}
+  ],
+  tasks:[["在音羽瀑布只选一股泉水","恋爱、学业、健康，您选了哪一股？"],["在三年坂平安走完","不摔跤就是今天最大的胜利"],["在三千院的苔庭找到童地藏","看看您能找到几尊"],["在红灯笼参道拍一张照片","贵船最经典的画面，石阶两旁一排红色灯笼"],["在贵船神社抽一张水占卜","把空白的签纸放进神水里，文字会慢慢浮现出来"]],
+  season:{tag:"秋冬版 · 11月下旬～2月",items:[["看","12 月初是京都红叶的尾声，三千院的苔庭上会铺满落下的红叶，日本人叫「散红叶」，别有一番味道。"],["吃","冬天是日本吃螃蟹的季节，中午的京都蟹膳就是当季的味道。大原是京都腌菜的故乡，红紫色的「柴渍」很适合当伴手礼。"],["穿","大原和贵船都在山里，比京都市区冷好几度，请穿暖和一点。"]]},
+  word:{jp:"おおきに",ro:"o-o-ki-ni",p:"京都话的「谢谢」。在京都的老店买东西时，店家常会这样说。您也可以回一句「おおきに」，对方一定会笑着看您。"}
+ },
+ {id:"day6",d:"12/04",w:"周五",t:"带着六天的故事，继续出发",recap:1,
+  quote:"从太平洋的海边，到熊野的深山，再到千年的古都，愿这六天的故事，陪您走很远。",
+  route:[["酒店早餐",""],["导览行程到此结束","返程或继续您的旅行"]],
+  stories:[
+   {n:"六天回顾",h:"一条「从海到山、再到都城」的路",p:["第一天落地后泡温泉，第二天在太平洋的断崖边看海，然后走进熊野古道，见到八咫乌和「一家四口」的神殿。第三天见到没有神殿的神，那智瀑布。","第四天在平等院看到人间的极乐，在美秀美术馆走进桃花源；第五天从清水寺、三千院一直走到京都的水源贵船。"],f:"如果只记住一件事：在日本，山、水、树本身就可以是神。"},
+   {n:"伴手礼清单",h:"这一路可以带回家的味道",p:["和歌山的南高梅干、宇治抹茶和抹茶点心、京都大原的柴渍，都是这一路的当地特产。大阪、京都的商场和关西机场里也都能买到。"],f:"关西机场出发区也有不少伴手礼店，登机前还可以再逛一逛。"}
+  ],
+  tasks:[["数一数这六天完成了多少隐藏任务","答案就在下面"],["选出您最喜欢的一天","可以在微信上告诉 Yuami，我很想知道"]],
+  season:{tag:"秋冬版 · 11月下旬～2月",items:[["看","回程的飞机上如果坐在窗边，天气好时可以再看一眼大阪湾和关西机场的人工岛。"],["穿","冬天的关西早晚温差大，空气也比较干燥，记得保暖、多喝水。"]]},
+  word:{jp:"またね",ro:"ma-ta-ne",p:"「下次见」。日语里的告别通常不说「再见」，而是说「下次见」。期待和您在下一个季节再见。"}
+ }
+];
+window.guideDays=days;
+const tabs=document.getElementById("tabs"),main=document.getElementById("main");
+tabs.innerHTML=days.map((x,i)=>`<a href="#${x.id}" data-id="${x.id}"><b>Day ${i+1}</b><small>${x.d}</small></a>`).join("");
+const KEY="hg-tasks";
+let done={};try{done=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(done))}catch(e){}};
+function render(){
+ const id=(location.hash||"#day1").slice(1);
+ const i=Math.max(0,days.findIndex(x=>x.id===id));const x=days[i];
+ for(const a of tabs.querySelectorAll("a"))a.setAttribute("aria-current",a.dataset.id===x.id);
+ if(!x.stories){main.innerHTML=`<section class="soon"><div class="kicker">Day ${i+1} · ${x.d} ${x.w}</div><h2>${x.t}</h2><p>这一天的隐藏攻略正在制作中，先看看 Day 2 的样章吧。</p></section>`;return}
+ const n=x.tasks.filter((_,k)=>done[x.id+k]).length;
+ main.innerHTML=`<section class="day">
+  <div class="kicker">Day ${i+1} · ${x.d} ${x.w}</div>
+  <h2>${x.t}</h2>
+  <p class="quote">${x.quote}</p>
+  <h3>今日路线</h3>
+  <ol class="route">${x.route.map(r=>`<li class="${r[2]?"walk":""}"><b>${r[0]}</b>${r[1]?`<span>${r[1]}</span>`:""}</li>`).join("")}</ol>
+  <p class="note">${x.route.some(r=>r[2])?"实心圆点是可根据体力选择的徒步段。":""}行程可根据当天天气、时间和心情灵活调整。</p>
+  <h3>景点背后的故事</h3>
+  <div class="cards">${x.stories.map(s=>`<article class="card"><h4>${s.n}</h4><p class="hook">${s.h}</p>${s.p.map(t=>`<p>${t}</p>`).join("")}${s.halls?`<div class="halls">${s.halls.map(g=>`<div class="bldg${g.m?" main":""}"><div class="roof"></div><div class="rooms">${g.r.map(h=>`<div class="hall"><i>${h[3]}</i><b>${h[0]}</b>${h[1]}<br><em>${h[2]}</em></div>`).join("")}</div><div class="blab">${g.l}</div></div>`).join("")}</div><p class="cap">走到神社最里面，面向神殿从左到右是三栋建筑、四座神殿：第一殿和第二殿共用左边最大的一栋，第三殿、第四殿各自独立。圆圈数字是参拜顺序，蓝字是对应的佛。境内旁边还有其他小社，不在这四殿之列，请不要走错哦。</p>`:""}${(s.p2||[]).map(t=>`<p>${t}</p>`).join("")}<p class="fact">${s.f}</p></article>`).join("")}</div>
+  <h3>隐藏任务<small>完成一项就点一下</small></h3>
+  <div class="tasks">${x.tasks.map((t,k)=>`<label class="task"><input type="checkbox" id="t-${x.id}-${k}" data-k="${x.id+k}" ${done[x.id+k]?"checked":""}><div><b>${t[0]}</b><span>${t[1]}</span></div></label>`).join("")}</div>
+  <p class="score" id="score">已完成 ${n} / ${x.tasks.length}</p>${x.recap?`<p class="total">这趟旅行您一共完成了 <b>${days.reduce((a,d)=>a+(d.tasks||[]).filter((_,k)=>done[d.id+k]).length,0)}</b> / ${days.reduce((a,d)=>a+(d.tasks||[]).length,0)} 个隐藏任务</p>`:""}
+  <section class="season"><h3>当季限定</h3><span class="tag">${x.season.tag}</span><dl>${x.season.items.map(s=>`<div><dt>${s[0]}</dt><dd>${s[1]}</dd></div>`).join("")}</dl></section>
+  <section class="word"><div class="kicker">今日一个日语词</div><div class="jp">${x.word.jp}</div><div class="ro">${x.word.ro}</div><p>${x.word.p}</p></section>
+ </section>`;
+ main.querySelectorAll(".task input").forEach(c=>c.addEventListener("change",()=>{done[c.dataset.k]=c.checked;save();
+  const m=x.tasks.filter((_,k)=>done[x.id+k]).length;
+  document.getElementById("score").textContent=m===x.tasks.length?`今天的隐藏任务全部完成！`:`已完成 ${m} / ${x.tasks.length}`}));
+}
+window.addEventListener("hashchange",()=>{render();window.scrollTo({top:document.querySelector(".tabs").offsetTop})});
+render();
+}
+</script>
+</body>
+</html>
